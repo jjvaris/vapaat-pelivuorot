@@ -12,7 +12,6 @@
   "scripts": {
     "start": "yarn workspace backend start",
     "build": "yarn workspace backend build",
-    "postinstall": "yarn build",
-    "deploy:backend": "flyctl deploy -c backend/fly.toml"
+    "deploy:backend": "flyctl deploy"
   }
 }
