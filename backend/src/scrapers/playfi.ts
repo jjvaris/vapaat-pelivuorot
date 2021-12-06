@@ -16,13 +16,12 @@ export default async function ({
 }: Options): Promise<AvailableHourUpdate> {
   const $ = await scrape(url);
   // const $ = await fake('meilahti.html');
-  const freeHours = $('td[class="s-avail"], td[class="s-avail-short"]')
+  const freeHours = $('td[class*="s-avail"], td[class*="s-avail-short"]')
+    .filter((_, e) => $(e).children('a').attr() !== undefined)
     .map((_, e) => {
       const fullHour = $(e).children('a').attr().href.includes('kesto=60');
-      const text = $(e).children().text();
       const htmlParts = $(e).children().html()?.split('<br>') ?? [];
       const court = htmlParts[0];
-      //console.log(court);
       const hour = htmlParts[1];
       const courtType: CourtType =
         court === 'Pallotykki' || court.includes('PT')

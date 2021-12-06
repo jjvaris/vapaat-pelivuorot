@@ -18,7 +18,8 @@ export type HallId =
   | 'smash-center-olari'
   | 'laajasalon-tenniskeskus'
   | 'padelhouse'
-  | 'padelhouse-uusi';
+  | 'padelhouse-uusi'
+  | 'billebeinopadel';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 

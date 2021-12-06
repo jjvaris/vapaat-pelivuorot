@@ -100,6 +100,13 @@ const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['PADEL'],
   },
+  {
+    id: 'billebeinopadel',
+    name: 'Billebeino Padel ',
+    link: 'https://play.fi/billebeinopadel/booking/booking-calendar',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
 ];
 
 export function factory() {

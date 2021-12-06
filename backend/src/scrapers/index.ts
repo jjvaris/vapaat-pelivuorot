@@ -11,6 +11,7 @@ import { smashCenterOlari } from './smashOlari';
 import { laajasalonTenniskeskus } from './laajasalo';
 import { padelhouse, padelhouseUusi } from './slssystems/padelhouse';
 import { AvailableHourUpdate } from 'shared';
+import billebeino from './padel/billebeino';
 
 type Scraper = (date: Date) => Promise<AvailableHourUpdate>;
 
@@ -31,6 +32,7 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'laajasalon-tenniskeskus', scraper: laajasalonTenniskeskus },
   { name: 'padelhouse', scraper: padelhouse },
   { name: 'padelhouse-uusi', scraper: padelhouseUusi },
+  { name: 'billebeinopadel', scraper: billebeino },
 ];
 
 export { talitaivallahti };
