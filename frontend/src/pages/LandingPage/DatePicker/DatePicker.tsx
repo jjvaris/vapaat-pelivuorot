@@ -14,11 +14,7 @@ const weekDays: Record<number, string> = {
   6: 'La',
 };
 
-type Props = {
-  onChange?: (date: string) => void;
-};
-
-export default function DatePicker({ onChange }: Props) {
+export default function DatePicker() {
   const selectedDay = useSelectedDay();
 
   const days = Array.from({ length: 14 }, (v, i) => addDays(new Date(), i)).map(
@@ -38,10 +34,10 @@ export default function DatePicker({ onChange }: Props) {
           <Link to={`?day=${isoDate}`} key={isoDate}>
             <div
               className={c(
-                'flex flex-col items-center justify-center p-1 rounded-sm w-11 h-10 bg-white border',
+                'flex flex-col items-center justify-center p-1 rounded-sm w-11 h-10 bg-white',
                 {
                   'bg-primary text-white': isoDate === selectedDay,
-                  'hover:bg-primary hover:text-gray-100 hover:border-grey-200':
+                  'border hover:bg-primary hover:text-gray-100 hover:border-grey-200':
                     isoDate !== selectedDay,
                 }
               )}

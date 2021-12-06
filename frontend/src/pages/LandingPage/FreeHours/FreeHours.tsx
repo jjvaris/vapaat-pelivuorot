@@ -83,7 +83,7 @@ function Halls({
               </h3>
             </div>
             <a
-              className="flex items-center"
+              className="flex items-center hover:text-primary-500"
               href={hall.link}
               rel="noreferrer noopener"
               target="_blank"
