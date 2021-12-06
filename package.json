@@ -12,6 +12,7 @@
   "scripts": {
     "start": "yarn workspace backend start",
     "build": "yarn workspace backend build",
+    "build:frontend": "yarn workspace shared build && yarn workspace frontend build",
     "deploy:backend": "flyctl deploy"
   }
 }
