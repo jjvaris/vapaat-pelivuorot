@@ -1,0 +1,940 @@
+
+
+
+
+
+        <!DOCTYPE html>
+    <html lang="fi">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+                <title></title>
+
+
+        
+
+        <link href="/assets/3f1ffab1/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/f2a40550/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<link href="/assets/f2a40550/css/datepicker-kv.min.css" rel="stylesheet">
+<link href="/assets/54877ce3/css/kv-widgets.min.css" rel="stylesheet">
+<link href="https://fonts.gstatic.com" rel="preconnect">
+<link href="//fonts.googleapis.com/css?family=Mulish:400,600,700,900&amp;display=swap" rel="stylesheet">
+<link href="/css/b-main-4.css" rel="stylesheet">
+<script type="text/javascript">window.kvDatepicker_2cd6cd54 = {"format":"DD dd.mm.yyyy","weekStart":1,"autoclose":true,"startDate":"01.11.2021","endDate":"29.11.2021","todayHighlight":true,"language":"fi"};
+</script>
+        
+
+  <meta name="description" content="play.fi" />
+  <meta property="og:description" content="play.fi" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#001954">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="msapplication-TileColor" content="#001954">
+  <meta name="theme-color" content="#001954">
+  <meta name="apple-mobile-web-app-title" content="play.fi">
+  <meta name="application-name" content="play.fi">
+
+  
+              <style>
+        body {overflow: auto;}
+        body.fixed > div.wrapper {overflow: visible;}
+        </style>
+      
+    </head>
+
+    <body>
+        <div id="page" class="venue">
+
+        
+    <header id="header" class="header">
+      <div class="content header__wrapper">
+        <a href="/" class="brand header__brand">
+          <div class="logo brand__logo">
+            <svg viewBox="0 0 375 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>play.fi</title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <path d="M60.2222974,30.6215071 C80.1991853,30.6215071 92.4477882,47.0987943 90.2605377,71.1585499 C88.2191039,95.2183055 73.054167,111.695593 53.077279,111.695593 C43.8908269,111.695593 36.4541752,107.758542 31.642224,100.905157 L31.642224,100.905157 L27.9968065,142.3171 L3.97903932e-13,142.3171 L9.47808554,33.5378411 L37.4748921,33.5378411 L36.7458086,41.2661263 C42.7242933,34.558558 50.7442118,30.6215071 60.2222974,30.6215071 Z M48.9944114,55.2645295 C40.5370428,55.2645295 33.8294745,61.9720978 33.100391,71.1585499 C32.2254908,80.1991853 37.7665255,86.9067536 46.2238941,86.9067536 C54.8270794,86.9067536 61.388831,80.1991853 62.2637312,71.1585499 C62.9928147,61.9720978 57.45178,55.2645295 48.9944114,55.2645295 Z M120.8202,108.779259 L130.298286,0 L102.155662,0 L92.6775769,108.779259 L120.8202,108.779259 Z M166.597144,30.6215071 C176.221046,30.6215071 183.803515,35.2876415 188.615466,43.1617434 L188.615466,43.1617434 L189.344549,33.5378411 L217.487172,33.5378411 L210.925421,108.779259 L182.782798,108.779259 L183.657698,99.1553564 C177.533396,107.029458 169.076028,111.695593 159.452126,111.695593 C139.037787,111.695593 126.643368,95.2183055 128.684802,71.1585499 C130.872052,47.0987943 146.182806,30.6215071 166.597144,30.6215071 Z M172.721445,55.1187128 C164.264077,55.1187128 157.556508,61.8262811 156.827425,71.1585499 C155.952525,80.345002 161.493559,87.198387 169.950928,87.198387 C178.408297,87.198387 185.115865,80.345002 185.990765,71.1585499 C186.719849,61.8262811 181.324631,55.1187128 172.721445,55.1187128 Z M250.400619,33.5378411 L263.961572,74.8039674 L280.876309,33.5378411 L309.748016,33.5378411 L292.269624,72.2196192 C291.120941,72.0744807 289.93075,72 288.702699,72 C275.234427,72 264.415651,81.5555556 263.090903,95.1111111 C262.351473,104.041769 266.168522,111.277598 272.883393,115.082417 C263.750619,134.414761 253.688056,143.192 239.901816,143.192 C234.798232,143.192 228.382297,142.025466 224.153613,140.421483 L224.153613,140.421483 L225.903413,120.736228 C227.653214,121.465312 231.444448,121.902762 233.777515,121.902762 C242.089067,121.902762 246.755201,118.840611 250.254802,110.091609 L250.254802,110.091609 L219.779112,33.5378411 L250.400619,33.5378411 Z M372.368381,57.474835 L367.789193,110.323147 L348.149564,110.323147 L352.830512,57.474835 L372.368381,57.474835 Z M338.085167,31.8700326 C341.952037,31.8700326 346.225946,32.5869671 349.584017,33.7135784 L349.584017,33.7135784 L348.159381,49.690975 C346.734744,49.2812982 345.004829,49.0764598 343.478433,49.0764598 C339.815082,49.0764598 337.169329,51.124844 336.96581,54.2998395 L336.96581,54.2998395 L336.66053,57.474835 L347.548822,57.474835 L346.225946,72.1207819 L335.337654,72.1207819 L332.081342,110.323147 L312.441713,110.323147 L312.643013,108.033103 L314.931771,81.9955441 L315.799784,72.1207819 L309.083642,72.1207819 L310.406518,57.474835 L317.020901,57.474835 L317.42794,53.2756474 C318.547297,40.370827 326.789836,31.8700326 338.085167,31.8700326 Z M364.838161,30.8458405 C371.249024,30.8458405 375.421173,35.2498665 374.912375,41.3950191 C374.301816,47.6425909 369.417349,52.0466169 363.006486,52.0466169 C356.799142,52.0466169 352.525233,47.6425909 353.034031,41.3950191 C353.64459,35.2498665 358.630817,30.8458405 364.838161,30.8458405 Z" id="play.fi-logo-text" fill="#FFFFFF"></path>
+                <path d="M285.226016,109 C293.692884,109 300.143831,103.183575 300.950199,95.0676329 C301.622173,86.8164251 296.111989,81 287.645121,81 C279.447042,81 272.861701,86.8164251 272.055332,95.0676329 C271.383358,103.183575 276.893542,109 285.226016,109 Z" id="play.fi-logo-dot" fill="#F21313"></path>
+              </g>
+            </svg>
+          </div>
+        </a>
+        <nav class="navigation header__navigation" role="navigation">
+
+          <ul class="navigation__items">
+
+            <li class="navigation__item"><a class="navigation__link" href="/site/index">Varaa</a></li>
+
+            <li class="navigation__item"><a class="navigation__link current-page" href="/booking/courts-list">Kentät</a></li>
+
+            <li class="navigation__item"><a class="navigation__link " href="/site/clubs">Seuroille</a></li>
+
+            <li class="navigation__item"><a class="navigation__link " href="/site/playfriends">Löydä peliseuraa</a></li>
+
+            <li class="navigation__item my-dropdown1">&nbsp;</li>
+
+                          <li class="navigation__item my-dropdown1"><a class="navigation__link" href="/site/login">Kirjaudu</a></li> 
+            
+          </ul>
+
+
+          <div class="navigation__actions">
+
+            
+              <a href="/site/login" class="navigation__action navigation__login button button--small">
+                <span class="icon">
+                  <svg>
+                    <use xlink:href="/icons.svg#icon-log-in"></use>
+                  </svg>
+                </span>
+                <span class="button__text">Kirjaudu</span>
+              </a>
+
+            
+          </div>
+
+
+          <button class="button navigation__toggle hamburger" type="button" aria-expanded="false">
+            <span class="button__text hamburger__text">Valikko</span>
+            <span class="button__icon hamburger__icon">
+              <span class="hamburger__line"></span>
+            </span>
+          </button>
+
+
+        </nav>
+
+      </div>
+    </header>
+
+
+        
+
+
+<main id="main" class="content-wrapper">
+
+
+  
+    
+      <section class="hero hero--slim hero--left my-toggle-favorite " data-facility_id="52">
+        <div class="hero__wrapper">
+
+          <div class="hero__image image image--background">
+            <img src="/images/backgrounds/hero.jpg" alt="" width="1920" height="1028" />
+          </div>
+
+          <div class="hero__content" >
+
+            
+            <div class="hero__profile">
+
+                           <div class="hero__avatar avatar">
+                <img loading="lazy" src="/images/logos/facilities/meilahti/logo-meilahti-w100.jpg" width="50" height="22" alt="Meilahden Liikuntakeskus" />
+              </div>
+              <div class="hero__info">
+                <h1>Meilahden Liikuntakeskus</h1>
+                <p>Helsinki</p>
+              </div>
+             
+            </div>
+          </div>
+          <div class="hero__controls">
+            <div class="tabs tabs--buttons">
+              <div id="w0" class="tabs__items">
+
+                                        <a class="p_laji button tab tab--active" href="#" data-p_laji="1">Tennis</a>                                        <a class="p_laji button tab" href="#" data-p_laji="2">Sulkapallo</a>                                        <a class="p_laji button tab" href="#" data-p_laji="3">Palloilu</a>                
+              </div>
+            </div>
+
+                      </div>
+        </div>
+      </section>
+
+
+  
+
+
+  
+
+  
+
+
+
+
+
+
+
+<form id="form-booking" class="form-inline" action="booking-calendar" method="get">
+
+
+
+    <!--
+    <div class="hidden-md hidden-lg text-right" style="margin-right: 10px; padding-top: 0px; margin-top: -15px; font-size: 10px; text-transform: uppercase;">
+      Kalenteri:&nbsp;
+      <a class="my-calmode-link" href="#" data-calmode="1">Lista</a>        &nbsp;|&nbsp;
+      <a class="my-calmode-link" href="#" data-calmode="2">Taulukko</a>    </div>
+    -->
+    
+
+<section class="section section--slimmest" style="margin-top: 0px;">
+        <div class="section__content">
+          <div class="columns">
+            <div class="column column--two-thirds">
+
+    <div class="error-summary" style="display:none"><p>Korjaa seuraavat virheet:</p><ul></ul></div>
+    <input type="hidden" id="bookingcalform-p_laji" name="BookingCalForm[p_laji]" value="1">    <input type="hidden" id="bookingcalform-p_location" name="BookingCalForm[p_location]" value="1">    <input type="hidden" id="bookingcalform-p_pvm" name="BookingCalForm[p_pvm]" value="2021-11-02">    <input type="hidden" id="bookingcalform-p_pvm_interval" name="BookingCalForm[p_pvm_interval]" value="">    <input type="hidden" id="bookingcalform-p_calmode" name="BookingCalForm[p_calmode]" value="2">
+
+      
+              <!-- Booking view -->
+              <div class="booking">
+
+                <!-- Booking date -->
+                <section class="booking__section booking__date">
+                  <div class="booking__datepicker">
+
+
+      <div class="form field-bookingcalform-p_pvm_custom">
+
+              <div class="form__group form__group--inline field-bookingcalform-p_pvm_custom">
+
+                        <button type="button" class="form__control button button--control" title="Avaa kalenteri" data-datepicker-control-calendar="">
+                          <span class="icon">
+                            <svg>
+                              <use xlink:href="/icons.svg#icon-calendar"></use>
+                            </svg>
+                          </span>
+                        </button>
+
+                <input type="text" id="bookingcalform-p_pvm_custom" class="form__input krajee-datepicker" name="BookingCalForm[p_pvm_custom]" value="Tiistai 02.11.2021" readonly="readonly" data-datepicker-source="bookingcalform-p_pvm_custom" data-datepicker-type="1" data-krajee-kvDatepicker="kvDatepicker_2cd6cd54">
+
+                        <button type="button" class="form__control button button--control my-date-interval-arrow" data-datepicker-control-interval="" data-interval="-1">
+                          <span class="icon">
+                            <svg>
+                              <use xlink:href="/icons.svg#icon-chevron-left"></use>
+                            </svg>
+                          </span>
+                        </button>
+
+                        <button type="button" class="form__control button button--control my-date-interval-arrow" data-datepicker-control-interval="" data-interval="1">
+                          <span class="icon">
+                            <svg>
+                              <use xlink:href="/icons.svg#icon-chevron-right"></use>
+                            </svg>
+                          </span>
+                        </button>
+
+              </div>
+              
+              
+            
+</div>
+
+                  </div>
+                  <div class="booking__tabs tabs tabs--inline" data-booking-view-tabs="" data-booking-show-on="desktop">
+                                    </div>
+                </section> <!-- .booking__section booking__date -->
+
+
+
+    
+
+
+      <section class="booking__section">
+        
+
+  
+
+  
+    
+<div class="booking-table ">
+  
+<table>
+
+  <tr><th style="width: 45px;"></th><th colspan="4" style="border-bottom: 1px solid black; text-transform: uppercase; font-weight: bold; text-align: left;">Ylipainehalli</th><th style="width: 6px;">&nbsp;</th><th colspan="3" style="border-bottom: 1px solid black; text-transform: uppercase; font-weight: bold; text-align: left;">Sisähalli</th></tr>
+  <tr><th style="width: 45px;"></th><th style="width: 85px; font-weight: bold; text-align: center;">K2</th><th style="width: 85px; font-weight: bold; text-align: center;">K3</th><th style="width: 85px; font-weight: bold; text-align: center;">K4</th><th style="width: 85px; font-weight: bold; text-align: center;">K5</th><th style="width: 6px;">&nbsp;</th><th style="width: 85px; font-weight: bold; text-align: center;">K6</th><th style="width: 85px; font-weight: bold; text-align: center;">K7</th><th style="width: 85px; font-weight: bold; text-align: center;">K8</th></tr>
+
+  <tr style="height:3px;"> <!-- meilahti -->
+    
+      <th style="width: 45px;">
+      </th>
+    
+    <th style="width: 85px;">
+    </th>
+  
+    <th style="width: 85px;">
+    </th>
+  
+    <th style="width: 85px;">
+    </th>
+  
+    <th style="width: 85px;">
+    </th>
+  
+      <th style="width: 6px;">
+      </th>
+    
+    <th style="width: 85px;">
+    </th>
+  
+    <th style="width: 85px;">
+    </th>
+  
+    <th style="width: 85px;">
+    </th>
+  
+  </tr>
+
+    <tr>
+      <td rowspan="2" class="s-left-column">
+        07:00
+      </td>
+      <td colspan="8" class="s-no-border">
+        &nbsp;
+      </td>
+    </tr>
+
+    <!-- RIVIMAINS -->
+    <tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="8">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      <td rowspan="65" class="s-separator"></td>
+        <td class="s-booked" rowspan="8">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">07:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">08:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+08%3A00%3A00&kesto=60&resid=4">K4<br>08:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">08:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">09:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+09%3A00%3A00&kesto=60&resid=4">K4<br>09:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="8">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">09:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">10:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">10:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">11:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+11%3A00%3A00&kesto=60&resid=6">K6<br>11:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">11:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">12:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+12%3A00%3A00&kesto=60&resid=3">K3<br>12:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="8">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+12%3A00%3A00&kesto=60&resid=5">K5<br>12:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+12%3A00%3A00&kesto=60&resid=8">K8<br>12:00<br><strong>Varaa</strong></a>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">12:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">13:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">13:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">14:00</td></tr><tr>
+        <td class="s-booked" rowspan="28">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="28">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="28">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">14:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">15:00</td></tr><tr>
+        <td class="s-booked" rowspan="24">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">15:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">16:00</td></tr><tr>
+        <td class="s-booked" rowspan="20">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">16:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">17:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="8">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">17:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">18:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">18:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">19:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">19:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">20:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">20:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">21:00</td></tr><tr>
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+21%3A00%3A00&kesto=60&resid=3">K3<br>21:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">21:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">22:00</td></tr><tr>
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+22%3A00%3A00&kesto=60&resid=2">K2<br>22:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+22%3A00%3A00&kesto=60&resid=3">K3<br>22:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-avail" rowspan="4">
+          <a href="/meilahti/booking/create-booking?alkuaika=2021-11-02+22%3A00%3A00&kesto=60&resid=4">K4<br>22:00<br><strong>Varaa</strong></a>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      
+        <td class="s-booked" rowspan="4">
+          <b>Varattu</b>
+        </td>
+      </tr><tr><td rowspan="2" class="s-left-column">22:30</td></tr><tr></tr><tr><td rowspan="2" class="s-left-column">23:00</td></tr><tr>
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      
+        <td class="s-no-border" rowspan="1">
+          &nbsp;
+        </td>
+      </tr>
+
+   </table>
+  </div>
+
+<div class="booking-list hidden-md hidden-lg  my-hidden " style="margin-top: 2em;">
+    </div>
+
+
+
+
+  
+      </section>
+
+    </div>
+
+  </div> <!-- .column...two-thirds -->
+
+
+    <div class="column column--third cards">
+
+
+              <div class="card card--bleed">
+                <div class="card__content">
+                  <p class="card__subheading">
+                    Sijainti
+                  </p>
+                  <div>
+                    Zaidankatu 9<br>
+                    00250 Helsinki<br>
+                    <a href="https://goo.gl/maps/hWwVyVou1H5QDWD57" >&raquo; Kartta</a>
+                    <br><br>Huom. Kulku oksakoskenpolun kautta!                  </div>
+                </div>
+              </div>
+
+
+              <div class="card card--bleed">
+                <div class="card__content">
+                  <p class="card__subheading">Yhteystiedot</p>
+                  <div>
+
+                    <a href="https://www.meilahdenliikuntakeskus.fi/" rel="noopener nofollow">meilahdenliikuntakeskus.fi</a><br>
+                    <a href="mailto:asiakaspalvelu@meilahdenliikuntakeskus.fi">asiakaspalvelu@meilahdenliikuntakeskus.fi</a><br>
+                    <a href="tel:050 374 8068">p. 050 374 8068</a><br>
+                    
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="card card--bleed">
+                <div class="card__content">
+                  <p class="card__subheading">Ohjeet</p>
+
+                  <div>
+                    <a class="myModalLink" href="/meilahti/site/ohjeet-ajax" data-modaltitle="Ohjeet">&raquo; Ohjeet / Meilahden Liikuntakeskus</a>                  </div>
+
+                  
+                  <div>
+                                          <a href="/site/vakiovuoro-tiedustelu?facility_id=52">&raquo; Vakiovuorotiedustelu</a>                                      </div>
+
+                  <br>
+
+                  
+                </div>
+              </div>
+
+
+    </div> <!-- .column...third -->
+
+  </div>
+  </div>
+</section>
+
+
+
+</form>
+
+
+<div id="modal" class="modal-success modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 id="modalTitle"></h4>
+</div>
+<div class="modal-body">
+<div id="modalContent"></div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-success" data-dismiss="modal">Sulje</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main>
+
+
+
+
+        
+
+  <div class="toolbar">
+    <div class="toolbar__content">
+
+        <ul class="toolbar__items">
+          <li class="toolbar__item">
+            <a href="/site/index" class="toolbar__link ">
+              <span class="icon">
+                <svg>
+                  <use xlink:href="/icons.svg#icon-calendar"></use>
+                </svg>
+              </span>
+              Varaa            </a>
+          </li>
+          <li class="toolbar__item">
+            <a href="/booking/courts-list" class="toolbar__link current-page">
+              <span class="icon">
+                <svg>
+                  <use xlink:href="/icons.svg#icon-flag"></use>
+                </svg>
+              </span>
+              Kentät            </a>
+          </li>
+          <li class="toolbar__item">
+            <a href="/booking/my-bookings-view" class="toolbar__link ">
+              <span class="icon">
+                <svg>
+                  <use xlink:href="/icons.svg#icon-check"></use>
+                </svg>
+              </span>
+              Varaukset            </a>
+          </li>
+          <li class="toolbar__item">
+            <a href="/site/profile-view" class="toolbar__link ">
+              <span class="icon">
+                <svg>
+                  <use xlink:href="/icons.svg#icon-user"></use>
+                </svg>
+              </span>
+              Profiili            </a>
+          </li>
+        </ul>
+
+   </div> <!-- .toolbar__content -->
+  </div> <!-- .toolbar -->
+
+
+
+  <footer id="footer" class="footer">
+
+      <div class="footer__content">
+        <div class="footer__columns">
+          <div class="footer__brand">
+            <div class="logo footer__logo">
+              <svg viewBox="0 0 375 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>play.fi</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <path d="M60.2222974,30.6215071 C80.1991853,30.6215071 92.4477882,47.0987943 90.2605377,71.1585499 C88.2191039,95.2183055 73.054167,111.695593 53.077279,111.695593 C43.8908269,111.695593 36.4541752,107.758542 31.642224,100.905157 L31.642224,100.905157 L27.9968065,142.3171 L3.97903932e-13,142.3171 L9.47808554,33.5378411 L37.4748921,33.5378411 L36.7458086,41.2661263 C42.7242933,34.558558 50.7442118,30.6215071 60.2222974,30.6215071 Z M48.9944114,55.2645295 C40.5370428,55.2645295 33.8294745,61.9720978 33.100391,71.1585499 C32.2254908,80.1991853 37.7665255,86.9067536 46.2238941,86.9067536 C54.8270794,86.9067536 61.388831,80.1991853 62.2637312,71.1585499 C62.9928147,61.9720978 57.45178,55.2645295 48.9944114,55.2645295 Z M120.8202,108.779259 L130.298286,0 L102.155662,0 L92.6775769,108.779259 L120.8202,108.779259 Z M166.597144,30.6215071 C176.221046,30.6215071 183.803515,35.2876415 188.615466,43.1617434 L188.615466,43.1617434 L189.344549,33.5378411 L217.487172,33.5378411 L210.925421,108.779259 L182.782798,108.779259 L183.657698,99.1553564 C177.533396,107.029458 169.076028,111.695593 159.452126,111.695593 C139.037787,111.695593 126.643368,95.2183055 128.684802,71.1585499 C130.872052,47.0987943 146.182806,30.6215071 166.597144,30.6215071 Z M172.721445,55.1187128 C164.264077,55.1187128 157.556508,61.8262811 156.827425,71.1585499 C155.952525,80.345002 161.493559,87.198387 169.950928,87.198387 C178.408297,87.198387 185.115865,80.345002 185.990765,71.1585499 C186.719849,61.8262811 181.324631,55.1187128 172.721445,55.1187128 Z M250.400619,33.5378411 L263.961572,74.8039674 L280.876309,33.5378411 L309.748016,33.5378411 L292.269624,72.2196192 C291.120941,72.0744807 289.93075,72 288.702699,72 C275.234427,72 264.415651,81.5555556 263.090903,95.1111111 C262.351473,104.041769 266.168522,111.277598 272.883393,115.082417 C263.750619,134.414761 253.688056,143.192 239.901816,143.192 C234.798232,143.192 228.382297,142.025466 224.153613,140.421483 L224.153613,140.421483 L225.903413,120.736228 C227.653214,121.465312 231.444448,121.902762 233.777515,121.902762 C242.089067,121.902762 246.755201,118.840611 250.254802,110.091609 L250.254802,110.091609 L219.779112,33.5378411 L250.400619,33.5378411 Z M372.368381,57.474835 L367.789193,110.323147 L348.149564,110.323147 L352.830512,57.474835 L372.368381,57.474835 Z M338.085167,31.8700326 C341.952037,31.8700326 346.225946,32.5869671 349.584017,33.7135784 L349.584017,33.7135784 L348.159381,49.690975 C346.734744,49.2812982 345.004829,49.0764598 343.478433,49.0764598 C339.815082,49.0764598 337.169329,51.124844 336.96581,54.2998395 L336.96581,54.2998395 L336.66053,57.474835 L347.548822,57.474835 L346.225946,72.1207819 L335.337654,72.1207819 L332.081342,110.323147 L312.441713,110.323147 L312.643013,108.033103 L314.931771,81.9955441 L315.799784,72.1207819 L309.083642,72.1207819 L310.406518,57.474835 L317.020901,57.474835 L317.42794,53.2756474 C318.547297,40.370827 326.789836,31.8700326 338.085167,31.8700326 Z M364.838161,30.8458405 C371.249024,30.8458405 375.421173,35.2498665 374.912375,41.3950191 C374.301816,47.6425909 369.417349,52.0466169 363.006486,52.0466169 C356.799142,52.0466169 352.525233,47.6425909 353.034031,41.3950191 C353.64459,35.2498665 358.630817,30.8458405 364.838161,30.8458405 Z" id="play.fi-logo-text" fill="#FFFFFF"></path>
+                  <path d="M285.226016,109 C293.692884,109 300.143831,103.183575 300.950199,95.0676329 C301.622173,86.8164251 296.111989,81 287.645121,81 C279.447042,81 272.861701,86.8164251 272.055332,95.0676329 C271.383358,103.183575 276.893542,109 285.226016,109 Z" id="play.fi-logo-dot" fill="#F21313"></path>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="footer__navigation">
+            <div class="footer__links">
+              <a href="/site/index">Varaa</a>              <a href="/booking/courts-list">Kentät</a>              <a href="/site/clubs">Seuroille</a>              <a href="/site/playfriends">Löydä peliseuraa</a>              <a href="/booking/my-bookings-view">Omat varaukset</a>              <a href="/site/profile-view">Omat tiedot</a>            </div>
+          </div>
+          <div class="footer__legal">
+            <div class="footer__links">
+                            <a href="/site/contact">Palaute</a>              <a href="/site/tietosuojaseloste">Tietosuoja</a>            </div>
+            <div class="footer__copy">&copy; 2021 SL Systems Oy</div>
+          </div>
+        </div>
+      </div>
+
+  </footer>
+
+
+
+
+    </div>
+
+    <script src="/assets/8be090ce/jquery.min.js"></script>
+<script src="/assets/f2a40550/js/bootstrap-datepicker.min.js"></script>
+<script src="/assets/f2a40550/js/datepicker-kv.min.js"></script>
+<script src="/assets/f2a40550/js/locales/bootstrap-datepicker.fi.min.js"></script>
+<script src="/assets/54877ce3/js/kv-widgets.min.js"></script>
+<script src="/assets/cbb2bf50/yii.js"></script>
+<script src="/assets/cbb2bf50/yii.activeForm.js"></script>
+<script src="/assets/3f1ffab1/js/bootstrap.min.js"></script>
+<script src="/js/mymain2g.js"></script>
+<script src="/js/b-main.js"></script>
+<script src="/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript">
+
+  function local_custom_submit(date_ymd) {
+    $("input[name='BookingCalForm[p_pvm]']").val(date_ymd);
+    $("input[name='BookingCalForm[p_pvm]']").closest("form").submit();
+    return false;
+  }
+
+  $("#form-booking .glyphicon-calendar").click(function() {
+    $("input[name='BookingCalForm[p_pvm_custom]']").kvDatepicker("show");
+    return false;
+  });
+
+  $("#form-booking .my-date-interval-arrow").click(function() {
+    $("input[name='BookingCalForm[p_pvm_interval]']").val($(this).data("interval"));
+    $(this).closest("form").submit();
+    return false;
+  });
+
+  $("div.tabs--buttons .p_laji").click(function() {
+    $("input[name='BookingCalForm[p_laji]']").val($(this).data("p_laji"));
+    // console.log("mm1");
+    // $(this).closest("form").submit();
+    $("form#form-booking").submit();
+    return false;
+  });
+
+
+  $("div.tabs--buttons .p_location").click(function() {
+    $("input[name='BookingCalForm[p_location]']").val($(this).data("p_location"));
+    console.log("mm1");
+    // $(this).closest("form").submit();
+    $("form#form-booking").submit();
+    return false;
+  });
+
+
+  // BEGIN p_calmode --- --- ---
+  $("#form-booking .my-calmode-link").click(function() {
+    $("input[name='BookingCalForm[p_calmode]']").val($(this).data("calmode"));
+    $(this).closest("form").submit();
+    return false;
+  });
+
+  function local_bookingTable_paddingTop() {
+    $(".booking-table").css({ paddingTop : $(".booking-form").height() + 20  + "px" });
+  }
+
+  local_bookingTable_paddingTop();
+
+  $(window).resize(function () {
+    local_bookingTable_paddingTop();
+  });
+  // END p_calmode --- --- ---
+
+
+
+ $(".time-link").click(function() {
+    $(".time-link").removeClass("active");
+    $(this).addClass("active");
+    $(".day_box").hide();
+    $("#times_at_" + $(this).data("time_value")).show();
+
+    return false;
+  });
+
+
+
+</script>
+<script type="text/javascript">jQuery(function ($) {
+jQuery.fn.kvDatepicker.dates={};
+if (jQuery('#bookingcalform-p_pvm_custom').data('kvDatepicker')) { jQuery('#bookingcalform-p_pvm_custom').kvDatepicker('destroy'); }
+jQuery('#bookingcalform-p_pvm_custom').kvDatepicker(kvDatepicker_2cd6cd54);
+
+jQuery('#form-booking').yiiActiveForm([], []);
+jQuery('#modal').modal({"show":false});
+});</script>    </body>
+
+    
+<script>
+  if ("serviceWorker" in navigator) {
+    console.log("Service worker register?");
+    navigator.serviceWorker.register("/sw-2021-03-18.js")
+      .then(function(reg){
+        console.log("Yes.");
+      }).catch(function(err) {
+        console.log("No. Err:", err);
+      });
+  }
+
+</script>
+      </html>
+    

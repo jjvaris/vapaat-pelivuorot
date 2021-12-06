@@ -1,0 +1,201 @@
+import React, { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
+import { client } from '../../../utils/api';
+import { AvailableHour, HallId, State, Type } from 'shared';
+import { useQuery } from 'react-query';
+import DatePicker from '../DatePicker';
+import useSelectedDay from '../../../hooks/useSelectedDay';
+import { format, parseISO } from 'date-fns';
+import Favourite from './Favourite';
+import useFavourites from './useFavourites';
+import { ExternalLinkIcon } from '@heroicons/react/solid';
+
+const weekDays: Record<number, string> = {
+  0: 'Sunnuntai',
+  1: 'Maanantai',
+  2: 'Tiistai',
+  3: 'Keskiviikko',
+  4: 'Torstai',
+  5: 'Perjantai',
+  6: 'Lauantai',
+};
+
+export default function AvailableHours() {
+  const { type = 'TENNIS' } = useParams();
+  const selectedDay = useSelectedDay();
+  const { isError, data } = useAvailableHours();
+
+  if (isError)
+    return <p>Virhe vuorojen latauksessa, yritä uudelleen myöhemmin :(</p>;
+
+  if (!data) return <p>Ladataan vapaita vuoroja...</p>;
+
+  return (
+    <>
+      <DatePicker />
+      <Halls
+        data={data}
+        type={type.toUpperCase() as Type}
+        searchDate={selectedDay}
+      />
+    </>
+  );
+}
+
+function Halls({
+  data,
+  type,
+  searchDate,
+}: {
+  data: State;
+  type: Type;
+  searchDate: string;
+}) {
+  const [favourites, toggleFavourite] = useFavourites();
+
+  const halls = useMemo(
+    () => getHours(data, type, searchDate, favourites),
+    [data, type, searchDate, favourites]
+  );
+
+  const date = parseISO(searchDate);
+
+  return (
+    <div className="text-left px-4 space-y-4">
+      <div className="flex gap-6 items-center">
+        <h2 className="text-xl">
+          {`${weekDays[date.getDay()]} ${format(date, 'd.M')}`}
+        </h2>
+        <span className="text-gray-200 font-light text-right bg-primary-800 rounded-sm px-2 py-1 text-xs">{`${
+          type.charAt(0) + type.slice(1).toLocaleLowerCase()
+        }`}</span>
+      </div>
+      {halls.map((hall) => (
+        <div key={hall.name} className="bg-gray-800 rounded-md p-4">
+          <div className="flex justify-between mb-4">
+            <div className="flex items-center">
+              <Favourite
+                isToggled={favourites.includes(hall.id)}
+                onToggle={() => toggleFavourite(hall.id)}
+              />
+              <h3 className="text-white font-extralight text-md">
+                {hall.name}
+              </h3>
+            </div>
+            <a
+              className="flex items-center"
+              href={hall.link}
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <span className="invisible xs:visible mr-2 text-sm">
+                Varaukset
+              </span>
+              <ExternalLinkIcon className="h-5 w-5" />
+            </a>
+          </div>
+          {hall.availableHours.length === 0 && (
+            <div className="text-pink-500 text-sm font-light">
+              Ei vapaita vuoroja
+            </div>
+          )}
+          <div className="flex flex-wrap gap-2">
+            {hall.availableHours.map((hour) => (
+              <a
+                href={hall.link}
+                key={hour}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex justify-center p-1 w-11 border border-green-500 text-green-500 text-xs"
+              >
+                {hour}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function useAvailableHours() {
+  return useQuery(['available-hours'], () => getAvailableHours(), {
+    staleTime: 30000,
+  });
+}
+
+async function getAvailableHours() {
+  const { data } = await client.get<State>(
+    'https://vapaat-pelivuorot.fly.dev/api/available-hours'
+  );
+  return data;
+}
+
+const getHours = (
+  data: State | undefined,
+  type: Type,
+  searchDate: string,
+  favourites: HallId[]
+) => {
+  if (!data) {
+    return [];
+  }
+
+  const today = new Date();
+  const todayIso = format(today, 'yyyy-MM-dd');
+
+  const isInPast = (hour: AvailableHour) =>
+    hour.day <= todayIso && parseInt(hour.hour) < today.getHours();
+
+  const filteredHours = data.availableHours.filter(
+    (hour) =>
+      hour.day === searchDate &&
+      !hour.thirtyMinutes &&
+      hour.type === type &&
+      ['INFLATED', 'INSIDE'].includes(hour.courtType) &&
+      !isInPast(hour)
+  );
+
+  const byDay = filteredHours.reduce((acc, cur) => {
+    if (!acc[cur.day]) {
+      acc[cur.day] = [cur];
+      return acc;
+    }
+    acc[cur.day] = [...acc[cur.day], cur];
+    return acc;
+  }, {} as Record<string, AvailableHour[]>);
+
+  const allByDay = byDay[searchDate] ?? [];
+
+  const byHallId = allByDay.reduce((acc, cur) => {
+    if (!acc[cur.hallId]) {
+      acc[cur.hallId] = {
+        name: data.halls.find((hall) => hall.id === cur.hallId)?.name || '',
+        availableHours: [cur.hour],
+        link: cur.link,
+      };
+      return acc;
+    }
+    acc[cur.hallId].availableHours = [
+      ...new Set([...acc[cur.hallId].availableHours, cur.hour]),
+    ];
+    return acc;
+  }, {} as Record<HallId, { name: string; availableHours: string[]; link: string }>);
+
+  return data.halls
+    .slice()
+    .filter((hall) => hall.types.includes(type))
+    .map((hall) => ({ ...hall, favourite: favourites.includes(hall.id) }))
+    .map((hall) => ({
+      name: hall.name,
+      availableHours: byHallId[hall.id]?.availableHours ?? [],
+      link: byHallId[hall.id]?.link ?? hall.link,
+      id: hall.id,
+      favourite: hall.favourite,
+    }))
+    .sort(
+      (a, b) =>
+        Number(b.favourite) - Number(a.favourite) ||
+        a.name.localeCompare(b.name)
+    );
+};
