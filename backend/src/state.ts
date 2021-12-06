@@ -86,6 +86,20 @@ const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
+  {
+    id: 'padelhouse',
+    name: 'Padelhouse',
+    link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padelhouse-uusi',
+    name: 'Padelhouse uusipuoli',
+    link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
 ];
 
 export function factory() {

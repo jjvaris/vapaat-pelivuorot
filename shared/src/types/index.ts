@@ -16,7 +16,9 @@ export type HallId =
   | 'esport-center-tapiola'
   | 'smash-center-helsinki'
   | 'smash-center-olari'
-  | 'laajasalon-tenniskeskus';
+  | 'laajasalon-tenniskeskus'
+  | 'padelhouse'
+  | 'padelhouse-uusi';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 

@@ -5,8 +5,6 @@ import state from './state';
 import { start as startScraping } from './scraper';
 import fs from 'fs';
 
-import { testing } from 'shared';
-
 const app = express();
 const router = express.Router();
 
