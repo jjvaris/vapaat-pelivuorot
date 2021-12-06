@@ -8,7 +8,7 @@
     "build:watch": "tsc --build --watch",
     "start": "yarn serve:prod",
     "serve": "nodemon src/app.ts",
-    "serve:prod": "ts-node --transpile-only src/app.ts"
+    "serve:prod": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "date-fns": "^2.24.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "shared": "*"
   }
 }
