@@ -88,14 +88,14 @@ const halls: Hall[] = [
   },
   {
     id: 'padelhouse',
-    name: 'Padelhouse',
+    name: 'Padel House',
     link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
     coordinates: [1, 2],
     types: ['PADEL'],
   },
   {
     id: 'padelhouse-uusi',
-    name: 'Padelhouse uusipuoli',
+    name: 'Padel House (uusi)',
     link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
     coordinates: [1, 2],
     types: ['PADEL'],
