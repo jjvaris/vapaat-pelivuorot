@@ -8,5 +8,8 @@
   "scripts": {
     "build": "tsc --build",
     "build:watch": "tsc --build --watch"
+  },
+  "dependencies": {
+    "typescript": "^4.4.3"
   }
 }

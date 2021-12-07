@@ -2,7 +2,7 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 import fs from 'fs';
 
-const client = axios.create({ timeout: 5000 });
+const client = axios.create({ timeout: 15000 });
 
 export const getByProxy = (url: string) =>
   client.get(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);

@@ -1,12 +1,12 @@
 import state from './state';
-import { format, addDays } from 'date-fns';
+import { format, addDays, parseISO } from 'date-fns';
 import scrapers, { talitaivallahti } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 
 const random = (max: number, min = 0) =>
   Math.floor(Math.random() * (max - min) + min);
 
-const schedule = (fn: () => void, max = 60000, min = 0) =>
+const schedule = (fn: () => void, max = 300000, min = 0) =>
   setTimeout(fn, random(max, min));
 
 const scrapeByDate = (
@@ -39,7 +39,9 @@ export function start() {
 
 function scrapeLoop() {
   scrapeAll();
-  setTimeout(scrapeLoop, resolveTimeout());
+  setTimeout(() => {
+    scrapeLoop();
+  }, resolveTimeout());
 }
 
 function cleanLoop() {
