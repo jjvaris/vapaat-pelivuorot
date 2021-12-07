@@ -121,6 +121,7 @@ function Halls({
 function useAvailableHours() {
   return useQuery(['available-hours'], () => getAvailableHours(), {
     staleTime: 30000,
+    refetchInterval: 30000,
   });
 }
 
