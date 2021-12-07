@@ -4,14 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "shared",
-    "backend",
-    "frontend"
-  ],
+  "workspaces": {
+    "packages": [
+      "shared",
+      "backend",
+      "frontend"
+    ],
+    "nohoist": [
+      "**/frontend",
+      "**/frontend/**",
+      "**/backend",
+      "**/backend/**",
+      "**/shared",
+      "**/shared/**"
+    ]
+  },
   "scripts": {
     "start": "yarn workspace backend start",
-    "build": "yarn workspace backend build",
+    "build": "yarn workspace shared build && yarn workspace backend build",
     "build:frontend": "yarn workspace shared build && yarn workspace frontend build",
     "deploy:backend": "flyctl deploy"
   }

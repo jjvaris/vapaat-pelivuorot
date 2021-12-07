@@ -21,14 +21,14 @@ const scrapeByDate = (
     .catch((e) => console.log(`scraping ${date} ${name} failed`, e));
 };
 
-const fiveMinutes = 300_000;
+const tenMinutes = 600_000;
 const fifteenMinutes = 900_000;
 const oneDay = 1000 * 60 * 60 * 24;
 
 const resolveTimeout = () => {
   const currentHour = new Date().getHours();
   return (currentHour > 5 && currentHour < 23) || currentHour === 0
-    ? fiveMinutes
+    ? tenMinutes
     : fifteenMinutes;
 };
 
