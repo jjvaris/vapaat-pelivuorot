@@ -128,6 +128,13 @@ const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['PADEL'],
   },
+  {
+    id: 'social-sports-club',
+    name: 'Social Sports Club',
+    link: 'https://play.fi/socialsportsclub/booking/booking-calendar',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
 ];
 
 export function factory() {

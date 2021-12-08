@@ -4,6 +4,7 @@ import scrapers, {
   talitaivallahti,
   padelhouse,
   padelhouseUusi,
+  socialSportsClub,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 
@@ -38,7 +39,7 @@ const resolveTimeout = () => {
 
 export function start() {
   scrapeLoop();
-  //scrapeByDate(parseISO('2021-12-20'), 'padelhouse', padelhouseUusi);
+  //scrapeByDate(parseISO('2021-12-20'), 'test', socialSportsClub);
   cleanLoop();
 }
 

@@ -22,7 +22,8 @@ export type HallId =
   | 'billebeinopadel'
   | 'hiekkabeach'
   | 'padelrocks'
-  | 'padelpoint';
+  | 'padelpoint'
+  | 'social-sports-club';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 

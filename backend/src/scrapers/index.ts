@@ -15,6 +15,7 @@ import billebeino from './padel/billebeino';
 import { padelpoint } from './padel/padelpoint';
 import { hiekkabeach } from './padel/hiekkabeach';
 import { padelrocks } from './padel/padelrocks';
+import { socialSportsClub } from './padel/socialSportsClub';
 
 type Scraper = (date: Date) => Promise<AvailableHourUpdate>;
 
@@ -40,6 +41,7 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'padelpoint', scraper: padelpoint },
   { name: 'hiekkabeach', scraper: hiekkabeach },
   { name: 'padelrocks', scraper: padelrocks },
+  { name: 'social-sports-club', scraper: socialSportsClub },
 ];
 
 export {
@@ -50,6 +52,7 @@ export {
   padelrocks,
   padelhouse,
   padelhouseUusi,
+  socialSportsClub,
 };
 
 export default scrapers;
