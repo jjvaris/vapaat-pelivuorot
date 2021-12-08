@@ -1,6 +1,10 @@
 import state from './state';
 import { format, addDays, parseISO } from 'date-fns';
-import scrapers, { talitaivallahti } from './scrapers';
+import scrapers, {
+  talitaivallahti,
+  padelhouse,
+  padelhouseUusi,
+} from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 
 const random = (max: number, min = 0) =>
@@ -34,7 +38,7 @@ const resolveTimeout = () => {
 
 export function start() {
   scrapeLoop();
-  //scrapeByDate(new Date(), 'padelrocks', padelrocks);
+  //scrapeByDate(parseISO('2021-12-20'), 'padelhouse', padelhouseUusi);
   cleanLoop();
 }
 

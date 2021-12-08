@@ -48,6 +48,8 @@ export {
   padelpoint,
   hiekkabeach,
   padelrocks,
+  padelhouse,
+  padelhouseUusi,
 };
 
 export default scrapers;

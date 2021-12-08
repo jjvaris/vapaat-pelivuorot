@@ -1,5 +1,5 @@
 import { scrape } from '../../api';
-import { format } from 'date-fns';
+import { addDays, format } from 'date-fns';
 import { AvailableHourUpdate, HallId, Hour } from 'shared';
 
 const scrapePadelhouse = async (
@@ -36,7 +36,7 @@ const scrapePadelhouse = async (
 };
 
 export const padelhouse = async (date: Date): Promise<AvailableHourUpdate> => {
-  const isoDate = format(date, 'yyyy-MM-dd');
+  const isoDate = format(addDays(date, 1), 'yyyy-MM-dd');
   const url = `https://padelhouse.slsystems.fi/booking/booking-calendar?BookingCalForm%5Bp_laji%5D=1&BookingCalForm%5Bp_pvm%5D=${isoDate}&BookingCalForm%5Bp_pvm_interval%5D=-1&BookingCalForm%5Bp_calmode%5D=2&BookingCalForm%5Bp_pvm_custom%5D=Tiistai+07.12.2021`;
   return scrapePadelhouse(url, 'padelhouse', date);
 };
