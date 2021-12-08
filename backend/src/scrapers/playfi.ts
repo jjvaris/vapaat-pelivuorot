@@ -19,7 +19,8 @@ export default async function ({
   const freeHours = $('td[class*="s-avail"], td[class*="s-avail-short"]')
     .filter((_, e) => $(e).children('a').attr() !== undefined)
     .map((_, e) => {
-      const fullHour = $(e).children('a').attr().href.includes('kesto=60');
+      const href = $(e).children('a').attr().href;
+      const fullHour = ['kesto=60', 'kesto=90'].some((v) => href.includes(v));
       const htmlParts = $(e).children().html()?.split('<br>') ?? [];
       const court = htmlParts[0];
       const hour = htmlParts[1];
