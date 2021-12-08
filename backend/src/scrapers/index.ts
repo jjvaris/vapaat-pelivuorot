@@ -1,5 +1,5 @@
 import meilahti from './meilahti';
-import { targaTennisInside } from './targa';
+import { targaTennisInside, targaPadelInside } from './targa';
 import { varistoTennisInside } from './varisto';
 import { talitaivallahti } from './talitaivallahti';
 import { mandalumTennisInside } from './mandalum';
@@ -12,12 +12,16 @@ import { laajasalonTenniskeskus } from './laajasalo';
 import { padelhouse, padelhouseUusi } from './slssystems/padelhouse';
 import { AvailableHourUpdate } from 'shared';
 import billebeino from './padel/billebeino';
+import { padelpoint } from './padel/padelpoint';
+import { hiekkabeach } from './padel/hiekkabeach';
+import { padelrocks } from './padel/padelrocks';
 
 type Scraper = (date: Date) => Promise<AvailableHourUpdate>;
 
 const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'meilahti', scraper: meilahti },
   { name: 'targa', scraper: targaTennisInside },
+  { name: 'targa-padel', scraper: targaPadelInside },
   { name: 'varisto', scraper: varistoTennisInside },
   { name: 'mandalum-center', scraper: mandalumTennisInside },
   { name: 'tapiolan-tennispuisto', scraper: tapiolanTennispuistoInside },
@@ -33,8 +37,17 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'padelhouse', scraper: padelhouse },
   { name: 'padelhouse-uusi', scraper: padelhouseUusi },
   { name: 'billebeinopadel', scraper: billebeino },
+  { name: 'padelpoint', scraper: padelpoint },
+  { name: 'hiekkabeach', scraper: hiekkabeach },
+  { name: 'padelrocks', scraper: padelrocks },
 ];
 
-export { talitaivallahti };
+export {
+  talitaivallahti,
+  targaPadelInside,
+  padelpoint,
+  hiekkabeach,
+  padelrocks,
+};
 
 export default scrapers;

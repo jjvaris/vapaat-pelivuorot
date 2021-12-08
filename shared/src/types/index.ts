@@ -19,11 +19,19 @@ export type HallId =
   | 'laajasalon-tenniskeskus'
   | 'padelhouse'
   | 'padelhouse-uusi'
-  | 'billebeinopadel';
+  | 'billebeinopadel'
+  | 'hiekkabeach'
+  | 'padelrocks'
+  | 'padelpoint';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 
-export type CourtType = 'INSIDE' | 'OUTSIDE' | 'INFLATED' | 'BALL-LAUNCHER';
+export type CourtType =
+  | 'INSIDE'
+  | 'OUTSIDE'
+  | 'INFLATED'
+  | 'BALL-LAUNCHER'
+  | 'PADEL-TWO-PLAYER';
 
 export type Hall = {
   id: HallId;

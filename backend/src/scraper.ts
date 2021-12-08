@@ -34,6 +34,7 @@ const resolveTimeout = () => {
 
 export function start() {
   scrapeLoop();
+  //scrapeByDate(new Date(), 'padelrocks', padelrocks);
   cleanLoop();
 }
 
