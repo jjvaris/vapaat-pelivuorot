@@ -127,7 +127,7 @@ function useAvailableHours() {
 
 async function getAvailableHours() {
   const { data } = await client.get<State>(
-    'https://vapaat-pelivuorot.fly.dev/api/available-hours'
+    'https://pelivuorot.herokuapp.com/api/available-hours'
   );
   return data;
 }
