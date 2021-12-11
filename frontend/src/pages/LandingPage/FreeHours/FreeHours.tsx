@@ -100,17 +100,20 @@ function Halls({
             </div>
           )}
           <div className="flex flex-wrap gap-2">
-            {hall.availableHours.map((hour) => (
-              <a
-                href={hall.link}
-                key={hour}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex justify-center p-1 w-11 border border-green-500 text-green-500 text-xs"
-              >
-                {hour}
-              </a>
-            ))}
+            {hall.availableHours
+              .slice()
+              .sort((a, b) => a.localeCompare(b))
+              .map((hour) => (
+                <a
+                  href={hall.link}
+                  key={hour}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex justify-center p-1 w-11 border border-green-500 text-green-500 text-xs"
+                >
+                  {hour}
+                </a>
+              ))}
           </div>
         </div>
       ))}
