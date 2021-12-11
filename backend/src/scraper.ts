@@ -5,6 +5,7 @@ import scrapers, {
   padelhouse,
   padelhouseUusi,
   socialSportsClub,
+  playtomic,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 
@@ -27,19 +28,20 @@ const scrapeByDate = (
 };
 
 const tenMinutes = 600_000;
-const fifteenMinutes = 900_000;
+const twentyMinutes = 1200_000;
 const oneDay = 1000 * 60 * 60 * 24;
 
 const resolveTimeout = () => {
   const currentHour = new Date().getHours();
   return (currentHour > 5 && currentHour < 23) || currentHour === 0
     ? tenMinutes
-    : fifteenMinutes;
+    : twentyMinutes;
 };
 
 export function start() {
   scrapeLoop();
-  //scrapeByDate(parseISO('2021-12-20'), 'test', socialSportsClub);
+  //scrapeByDate(parseISO('2021-12-12'), 'playtomic', playtomic);
+  //scrapeAll();
   cleanLoop();
 }
 

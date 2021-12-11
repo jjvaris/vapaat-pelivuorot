@@ -23,7 +23,17 @@ export type HallId =
   | 'hiekkabeach'
   | 'padelrocks'
   | 'padelpoint'
-  | 'social-sports-club';
+  | 'social-sports-club'
+  | 'finlandsuomenojaespoo'
+  | 'finlandkiloespoo'
+  | 'padel-club-finland-masala'
+  | 'arena-center-kaarela'
+  | 'padel-vantaa'
+  | 'padelsuperpark'
+  | 'finlandtammistiovantaa'
+  | 'finlandvantaa'
+  | 'padel-&-golf-plaza'
+  | 'padel-club-finland-monni,-hyvinkää';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 

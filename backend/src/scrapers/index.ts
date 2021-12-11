@@ -16,8 +16,11 @@ import { padelpoint } from './padel/padelpoint';
 import { hiekkabeach } from './padel/hiekkabeach';
 import { padelrocks } from './padel/padelrocks';
 import { socialSportsClub } from './padel/socialSportsClub';
+import { playtomic } from './playtomic/playtomic';
 
-type Scraper = (date: Date) => Promise<AvailableHourUpdate>;
+type Scraper = (
+  date: Date
+) => Promise<AvailableHourUpdate | AvailableHourUpdate[]>;
 
 const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'meilahti', scraper: meilahti },
@@ -42,6 +45,7 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'hiekkabeach', scraper: hiekkabeach },
   { name: 'padelrocks', scraper: padelrocks },
   { name: 'social-sports-club', scraper: socialSportsClub },
+  { name: 'playtomic', scraper: playtomic },
 ];
 
 export {
@@ -53,6 +57,7 @@ export {
   padelhouse,
   padelhouseUusi,
   socialSportsClub,
+  playtomic,
 };
 
 export default scrapers;

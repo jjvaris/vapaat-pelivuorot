@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { AvailableHourUpdate, Hall, State } from 'shared';
 
-const halls: Hall[] = [
+export const halls: Hall[] = [
   {
     id: 'meilahti',
     name: 'Meilahden liikuntakeskus',
@@ -133,6 +133,76 @@ const halls: Hall[] = [
     name: 'Social Sports Club',
     link: 'https://play.fi/socialsportsclub/booking/booking-calendar',
     coordinates: [1, 2],
+    types: ['PADEL'],
+  },
+  {
+    id: 'finlandsuomenojaespoo',
+    name: 'Padel Club Finland - Suomenoja Espoo',
+    link: 'https://playtomic.io/',
+    coordinates: [60.166183, 24.703338],
+    types: ['PADEL'],
+  },
+  {
+    id: 'finlandkiloespoo',
+    name: 'Padel Club Finland - Kilo Espoo',
+    link: 'https://playtomic.io/',
+    coordinates: [60.210771, 24.751772],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padel-club-finland-masala',
+    name: 'Padel Club Finland Masala, Kirkkonummi',
+    link: 'https://playtomic.io/',
+    coordinates: [60.16242424, 24.5380983],
+    types: ['PADEL'],
+  },
+  {
+    id: 'arena-center-kaarela',
+    name: 'Arena Center Kaarela',
+    link: 'https://playtomic.io/',
+    coordinates: [60.23773592, 24.90034999],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padel-vantaa',
+    name: 'Open Padel Kaivoksela',
+    link: 'https://playtomic.io/',
+    coordinates: [60.2675318, 24.8763947],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padelsuperpark',
+    name: 'Padel SuperPark, Tammisto',
+    link: 'https://playtomic.io/',
+    coordinates: [60.27625262, 24.97181929],
+    types: ['PADEL'],
+  },
+  {
+    id: 'finlandtammistiovantaa',
+    name: 'Padel Club Finland - Tammisto, Vantaa',
+    link: 'https://playtomic.io/',
+    coordinates: [60.28509982, 24.97519515],
+    types: ['PADEL'],
+  },
+  {
+    id: 'finlandvantaa',
+    name: 'Padel Club Finland - Porttipuisto Vantaa',
+    link: 'https://playtomic.io/',
+    coordinates: [60.278843, 25.085704],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padel-&-golf-plaza',
+    name: 'Padel & Golf Plaza',
+    link: 'https://playtomic.io/',
+    coordinates: [60.3448783, 25.0260579],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padel-club-finland-monni,-hyvinkää',
+    name: 'Padel Club Finland Monni, Hyvinkää',
+    link: 'https://playtomic.io/',
+    coordinates: [60.625524, 24.8489827],
     types: ['PADEL'],
   },
 ];
