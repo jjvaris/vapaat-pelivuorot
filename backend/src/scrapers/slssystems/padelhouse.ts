@@ -25,7 +25,8 @@ const scrapePadelhouse = async (
         day,
       };
     })
-    .get();
+    .get()
+    .filter((hour) => !hour.court.includes('Lounge'));
   return {
     hallId,
     day: hours[0]?.day ?? isoDate,
