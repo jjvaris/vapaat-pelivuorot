@@ -62,7 +62,7 @@ function Halls({
 
   return (
     <div className="text-left px-4 space-y-4">
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-6 items-center sticky top-0 bg-gray-900 py-2 -mt-2">
         <h2 className="text-xl">
           {`${weekDays[date.getDay()]} ${format(date, 'd.M')}`}
         </h2>
@@ -187,7 +187,6 @@ const getHours = (
   }, {} as Record<HallId, { name: string; availableHours: string[]; link: string }>);
 
   return data.halls
-    .slice()
     .filter((hall) => hall.types.includes(type))
     .map((hall) => ({ ...hall, favourite: favourites.includes(hall.id) }))
     .map((hall) => ({

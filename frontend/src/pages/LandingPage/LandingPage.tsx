@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const SelectTypeLink = ({
@@ -30,6 +30,7 @@ const SelectTypeLink = ({
 
 export default function LandingPage() {
   const [, setSelectedType] = useLocalStorage('selected-type', '/tennis');
+  const [params] = useSearchParams();
   return (
     <div className="max-w-3xl px-3 py-10 mx-auto text-center text-base min-h-screen flex flex-col text-primary-600">
       <header className="flex-none App-header ">
@@ -41,10 +42,16 @@ export default function LandingPage() {
         </div>
       </header>
       <nav className="mb-6 flex gap-5 justify-center items-center">
-        <SelectTypeLink onClick={() => setSelectedType('/tennis')} to="/tennis">
+        <SelectTypeLink
+          onClick={() => setSelectedType('/tennis')}
+          to={`/tennis?${params.toString()}`}
+        >
           TENNIS
         </SelectTypeLink>
-        <SelectTypeLink onClick={() => setSelectedType('/padel')} to="/padel">
+        <SelectTypeLink
+          onClick={() => setSelectedType('/padel')}
+          to={`/padel?${params.toString()}`}
+        >
           PADEL
         </SelectTypeLink>
       </nav>
