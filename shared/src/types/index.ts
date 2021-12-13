@@ -61,6 +61,7 @@ export type AvailableHour = {
   courtType: CourtType;
   type: Type;
   link: string;
+  id: string;
 };
 
 export type Hour = {
@@ -76,5 +77,6 @@ export type AvailableHourUpdate = {
   /* yyyy-MM-dd */
   day: string;
   link: string;
+  id: string;
   hours: Hour[];
 };

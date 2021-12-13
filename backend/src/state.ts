@@ -218,14 +218,15 @@ export function factory() {
       ...state,
       availableHours: [
         ...state.availableHours.filter(
-          ({ hallId, type, day, link }) =>
+          ({ hallId, type, day, id }) =>
             hallId !== update.hallId ||
             type !== update.type ||
             day !== update.day ||
-            link !== update.link
+            id !== update.id
         ),
         ...update.hours.map(({ hour, thirtyMinutes, courtType, court }) => ({
           hour,
+          id: update.id,
           link: update.link,
           hallId: update.hallId,
           day: update.day,

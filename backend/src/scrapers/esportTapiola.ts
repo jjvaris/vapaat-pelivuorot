@@ -36,6 +36,7 @@ export const esport1TennisInside = async (
     hours,
     type: 'TENNIS',
     link: courts10To14,
+    id: 'esport-center-tapiola-1',
   };
 };
 
@@ -51,5 +52,6 @@ export const esport2TennisInside = async (
     hours,
     type: 'TENNIS',
     link: courts1To8,
+    id: 'esport-center-tapiola-2',
   };
 };

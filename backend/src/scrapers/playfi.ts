@@ -37,6 +37,7 @@ export default async function ({
 
   return {
     hallId,
+    id: hallId,
     day: `${dateTime.slice(6, 10)}-${dateTime.slice(3, 5)}-${dateTime.slice(
       0,
       2

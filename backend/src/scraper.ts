@@ -6,6 +6,7 @@ import scrapers, {
   padelhouseUusi,
   socialSportsClub,
   playtomic,
+  padelrocks,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 

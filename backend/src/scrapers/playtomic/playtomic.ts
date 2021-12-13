@@ -94,6 +94,7 @@ export async function playtomic(date: Date): Promise<AvailableHourUpdate[]> {
     },
     halls.map((hall) => ({
       hallId: hall.id,
+      id: hall.id,
       type: 'PADEL',
       day,
       link:

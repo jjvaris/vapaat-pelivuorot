@@ -83,6 +83,7 @@ function transform(
 
       acc[current.day] = {
         hallId,
+        id: hallId,
         link: 'https://talitaivallahti.feel.cintoia.com/',
         type: 'TENNIS',
         day: current.day,

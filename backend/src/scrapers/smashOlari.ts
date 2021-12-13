@@ -36,6 +36,7 @@ export const smashCenterOlari = async (
     .get();
   return {
     hallId: 'smash-center-olari',
+    id: 'smash-center-olari',
     day,
     hours,
     link: url,

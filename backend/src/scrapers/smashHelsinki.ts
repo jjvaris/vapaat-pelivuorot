@@ -37,6 +37,7 @@ export const smashCenterHelsinki = async (
     .filter((hour) => hour.court !== 'K14');
   return {
     hallId: 'smash-center-helsinki',
+    id: 'smash-center-helsinki',
     day,
     hours,
     link: url,

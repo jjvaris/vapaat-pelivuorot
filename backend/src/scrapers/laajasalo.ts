@@ -28,6 +28,7 @@ export const laajasalonTenniskeskus = async (
     .get();
   return {
     hallId: 'laajasalon-tenniskeskus',
+    id: 'laajasalon-tenniskeskus',
     day: hours[0]?.day ?? isoDate,
     hours,
     link: url,
