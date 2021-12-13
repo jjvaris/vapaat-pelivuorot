@@ -9,6 +9,7 @@ import { format, parseISO } from 'date-fns';
 import Favourite from './Favourite';
 import useFavourites from './useFavourites';
 import { ExternalLinkIcon } from '@heroicons/react/solid';
+import c from 'classnames';
 
 const weekDays: Record<number, string> = {
   0: 'Sunnuntai',
@@ -102,14 +103,17 @@ function Halls({
           <div className="flex flex-wrap gap-2">
             {hall.availableHours
               .slice()
-              .sort((a, b) => a.localeCompare(b))
-              .map((hour) => (
+              .sort((a, b) => a.hour.localeCompare(b.hour))
+              .map(({ hour, thirtyMinutes }) => (
                 <a
                   href={hall.link}
                   key={hour}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex justify-center p-1 w-11 border border-green-500 text-green-500 text-xs"
+                  className={c('flex justify-center p-1 w-11 border text-xs', {
+                    'text-yellow-500 border-yellow-500': thirtyMinutes,
+                    'border-green-500 text-green-500': !thirtyMinutes,
+                  })}
                 >
                   {hour}
                 </a>
@@ -154,7 +158,6 @@ const getHours = (
   const filteredHours = data.availableHours.filter(
     (hour) =>
       hour.day === searchDate &&
-      !hour.thirtyMinutes &&
       hour.type === type &&
       ['INFLATED', 'INSIDE'].includes(hour.courtType) &&
       !isInPast(hour)
@@ -175,13 +178,16 @@ const getHours = (
     if (!acc[cur.hallId]) {
       acc[cur.hallId] = {
         name: data.halls.find((hall) => hall.id === cur.hallId)?.name || '',
-        availableHours: [cur.hour],
+        availableHours: [`${cur.hour};${cur.thirtyMinutes}`],
         link: cur.link,
       };
       return acc;
     }
     acc[cur.hallId].availableHours = [
-      ...new Set([...acc[cur.hallId].availableHours, cur.hour]),
+      ...new Set([
+        ...acc[cur.hallId].availableHours,
+        `${cur.hour};${cur.thirtyMinutes}`,
+      ]),
     ];
     return acc;
   }, {} as Record<HallId, { name: string; availableHours: string[]; link: string }>);
@@ -191,14 +197,39 @@ const getHours = (
     .map((hall) => ({ ...hall, favourite: favourites.includes(hall.id) }))
     .map((hall) => ({
       name: hall.name,
-      availableHours: byHallId[hall.id]?.availableHours ?? [],
+      availableHours: mapToHours(byHallId[hall.id]?.availableHours),
       link: byHallId[hall.id]?.link ?? hall.link,
       id: hall.id,
       favourite: hall.favourite,
     }))
+    .map((hall) => {
+      if (hall.id === 'padelrocks') {
+        console.log(hall.availableHours);
+      }
+      return hall;
+    })
     .sort(
       (a, b) =>
         Number(b.favourite) - Number(a.favourite) ||
         a.name.localeCompare(b.name)
     );
 };
+
+function mapToHours(hours?: string[]) {
+  if (!hours) return [];
+  return hours
+    .filter((hour) => {
+      const isThirtyMinutes = hour.split(';')[1] === 'true';
+      if (isThirtyMinutes) {
+        return !hours
+          .filter((h) => h.includes('false'))
+          .map((h) => h.split(';')[0])
+          .some((h) => h.slice(0, 2) === hour.split(';')[0].slice(0, 2));
+      }
+      return true;
+    })
+    .map((hour) => ({
+      hour: hour.split(';')[0],
+      thirtyMinutes: hour.split(';')[1] === 'true',
+    }));
+}
