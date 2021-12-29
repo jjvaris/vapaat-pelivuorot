@@ -5,13 +5,14 @@ import useSelectedDay from '../../../hooks/useSelectedDay';
 import useSelectedTime from '../../../hooks/useSelectedTime';
 
 export default function TimePicker() {
+  const [day] = useSelectedDay();
   const options = useOptions();
   const [time, setTime] = useSelectedTime();
   return (
     <div className="flex items-center text-green-500">
       <select
         className="pr-5 bg-transparent border-transparent focus:outline-none focus:border-transparent focus:ring-0 bg-none"
-        value={time}
+        value={time || getOptions(day)[0]}
         onChange={(event) => setTime(event.target.value)}
       >
         {options}
