@@ -2,14 +2,16 @@ import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { client } from '../../../utils/api';
 import { AvailableHour, HallId, State, Type } from 'shared';
-import { useQuery } from 'react-query';
 import DatePicker from '../DatePicker';
 import useSelectedDay from '../../../hooks/useSelectedDay';
+import { useQuery } from 'react-query';
 import { format, parseISO } from 'date-fns';
 import Favourite from './Favourite';
 import useFavourites from './useFavourites';
 import { ExternalLinkIcon } from '@heroicons/react/solid';
 import c from 'classnames';
+import TimePicker from '../TimePicker/TimePicker';
+import useSelectedTime from '../../../hooks/useSelectedTime';
 
 const weekDays: Record<number, string> = {
   0: 'Sunnuntai',
@@ -23,13 +25,14 @@ const weekDays: Record<number, string> = {
 
 export default function AvailableHours() {
   const { type = 'TENNIS' } = useParams();
-  const selectedDay = useSelectedDay();
+  const [selectedDay] = useSelectedDay();
+  const [selectedTime] = useSelectedTime();
   const { isError, data } = useAvailableHours();
 
   if (isError)
     return <p>Virhe vuorojen latauksessa, yritä uudelleen myöhemmin :(</p>;
 
-  if (!data) return <p>Ladataan vapaita vuoroja...</p>;
+  if (!data) return <Skeletons />;
 
   return (
     <>
@@ -38,7 +41,9 @@ export default function AvailableHours() {
         data={data}
         type={type.toUpperCase() as Type}
         searchDate={selectedDay}
+        time={selectedTime}
       />
+      <Instructions />
     </>
   );
 }
@@ -47,16 +52,18 @@ function Halls({
   data,
   type,
   searchDate,
+  time = '05:00',
 }: {
   data: State;
   type: Type;
   searchDate: string;
+  time?: string;
 }) {
   const [favourites, toggleFavourite] = useFavourites();
 
   const halls = useMemo(
-    () => getHours(data, type, searchDate, favourites),
-    [data, type, searchDate, favourites]
+    () => getHours(data, type, searchDate, time, favourites),
+    [data, type, searchDate, time, favourites]
   );
 
   const date = parseISO(searchDate);
@@ -67,6 +74,7 @@ function Halls({
         <h2 className="text-xl">
           {`${weekDays[date.getDay()]} ${format(date, 'd.M')}`}
         </h2>
+        <TimePicker />
         <span className="text-gray-200 font-light text-right bg-primary-800 rounded-sm px-2 py-1 text-xs">{`${
           type.charAt(0) + type.slice(1).toLocaleLowerCase()
         }`}</span>
@@ -143,6 +151,7 @@ const getHours = (
   data: State | undefined,
   type: Type,
   searchDate: string,
+  time: string,
   favourites: HallId[]
 ) => {
   if (!data) {
@@ -159,6 +168,7 @@ const getHours = (
     (hour) =>
       hour.day === searchDate &&
       hour.type === type &&
+      hour.hour >= time &&
       ['INFLATED', 'INSIDE'].includes(hour.courtType) &&
       !isInPast(hour)
   );
@@ -202,12 +212,6 @@ const getHours = (
       id: hall.id,
       favourite: hall.favourite,
     }))
-    .map((hall) => {
-      if (hall.id === 'padelrocks') {
-        console.log(hall.availableHours);
-      }
-      return hall;
-    })
     .sort(
       (a, b) =>
         Number(b.favourite) - Number(a.favourite) ||
@@ -232,4 +236,32 @@ function mapToHours(hours?: string[]) {
       hour: hour.split(';')[0],
       thirtyMinutes: hour.split(';')[1] === 'true',
     }));
+}
+
+function Skeletons() {
+  return (
+    <>
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div
+          key={i}
+          className="h-20 m-4 animate-pulse bg-gray-800 rounded-md"
+        />
+      ))}
+    </>
+  );
+}
+
+function Instructions() {
+  return (
+    <div className="px-4 mt-14 space-y-3 text-xs ">
+      <div className="flex items-center text-green-500">
+        <div className="flex justify-center p-1 w-11 h-6 border text-xs border-green-500 text-green-500 mr-4"></div>
+        <div>Vapaa aika 60 min</div>
+      </div>
+      <div className="flex items-center text-yellow-500">
+        <div className="flex justify-center p-1 w-11 h-6 border text-xs border-yellow-500 text-yellow-500 mr-4"></div>
+        <div>Vapaa aika 30 min</div>
+      </div>
+    </div>
+  );
 }

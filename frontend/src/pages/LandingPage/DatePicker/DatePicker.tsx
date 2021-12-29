@@ -1,8 +1,9 @@
 import React from 'react';
 import { format, addDays } from 'date-fns';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import c from 'classnames';
 import useSelectedDay from '../../../hooks/useSelectedDay';
+import { appendToSearchParams } from '../../../utils/searchParams';
 
 const weekDays: Record<number, string> = {
   0: 'Su',
@@ -15,7 +16,8 @@ const weekDays: Record<number, string> = {
 };
 
 export default function DatePicker() {
-  const selectedDay = useSelectedDay();
+  const [selectedDay] = useSelectedDay();
+  const [params] = useSearchParams();
 
   const days = Array.from({ length: 14 }, (v, i) => addDays(new Date(), i)).map(
     (day) =>
@@ -31,7 +33,10 @@ export default function DatePicker() {
     <div className="flex flex-wrap justify-center mb-6 gap-3 px-4 text-gray-600 text-xs">
       {days.map(({ formattedDay, weekDay, isoDate }) => {
         return (
-          <Link to={`?day=${isoDate}`} key={isoDate}>
+          <Link
+            to={`?${appendToSearchParams({ day: isoDate }, params)}`}
+            key={isoDate}
+          >
             <div
               className={c(
                 'flex flex-col items-center justify-center p-1 rounded-sm w-11 h-10 bg-white',

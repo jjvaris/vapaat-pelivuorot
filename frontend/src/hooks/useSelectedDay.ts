@@ -11,5 +11,8 @@ export default function useSelectedDay() {
       setParams({ day: today });
     }
   }, [setParams, day, today]);
-  return day < today ? today : day;
+  return [
+    day < today ? today : day,
+    (day: string) => setParams({ day }),
+  ] as const;
 }

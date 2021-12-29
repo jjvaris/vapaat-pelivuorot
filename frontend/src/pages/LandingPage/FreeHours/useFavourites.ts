@@ -10,13 +10,11 @@ export default function useFavourites() {
 
   const toggleFavourite = useCallback(
     (id: HallId) =>
-      setFavourites((current) => {
-        console.log({ current, id });
-
-        return current.includes(id)
+      setFavourites((current) =>
+        current.includes(id)
           ? current.filter((c) => c !== id)
-          : [...current, id];
-      }),
+          : [...current, id]
+      ),
     [setFavourites]
   );
 

@@ -3,8 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 const screens = { xs: '520px', ...defaultTheme.screens };
 
-console.log(screens);
-
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
@@ -26,5 +24,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
