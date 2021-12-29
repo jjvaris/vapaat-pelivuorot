@@ -134,7 +134,7 @@ function useAvailableHours() {
 
 async function getAvailableHours() {
   const { data } = await client.get<State>(
-    'https://pelivuorot.herokuapp.com/api/available-hours'
+    `${process.env.REACT_APP_BACKEND_HOST}/api/available-hours`
   );
   return data;
 }
