@@ -220,7 +220,7 @@ function FreeHours({ hall }: { hall: Hall }) {
   return (
     <div className="space-y-4">
       {Object.entries(hoursByCourt)
-        .sort(([a], [b]) => a.localeCompare(b))
+        .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
         .map(([court, hours]) => {
           return (
             <div key={court}>
