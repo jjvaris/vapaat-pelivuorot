@@ -44,7 +44,9 @@ const halls = tentants
     })),
   }));
 const hallsByResourceId = halls.reduce((acc, hall) => {
-  hall.courts.forEach((court) => (acc[court.resourceId] = hall));
+  hall.courts
+    .filter((court) => !court.name.includes('(ei padelkenttä)'))
+    .forEach((court) => (acc[court.resourceId] = hall));
   return acc;
 }, {} as Record<string, typeof halls[0]>);
 
@@ -80,15 +82,17 @@ export async function playtomic(date: Date): Promise<AvailableHourUpdate[]> {
       if (!court) return acc;
       availableHourUpdate.hours = [
         ...availableHourUpdate.hours,
-        ...resource.slots.map((slot) => ({
-          hour: startTimeToHour(day, slot.start_time),
-          thirtyMinutes: slot.duration === 30,
-          court:
-            hallByResourceId.courts.find(
-              (c) => c.resourceId === resource.resource_id
-            )?.name ?? 'unknown',
-          courtType: toCourtType(court.type, court.double),
-        })),
+        ...resource.slots
+          .filter((slot) => [30, 60].includes(slot.duration))
+          .map((slot) => ({
+            hour: startTimeToHour(day, slot.start_time),
+            thirtyMinutes: slot.duration === 30,
+            court:
+              hallByResourceId.courts.find(
+                (c) => c.resourceId === resource.resource_id
+              )?.name ?? 'unknown',
+            courtType: toCourtType(court.type, court.double),
+          })),
       ];
       return acc;
     },
