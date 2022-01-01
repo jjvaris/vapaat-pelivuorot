@@ -224,17 +224,26 @@ export function factory() {
             day !== update.day ||
             id !== update.id
         ),
-        ...update.hours.map(({ hour, thirtyMinutes, courtType, court }) => ({
-          hour,
-          id: update.id,
-          link: update.link,
-          hallId: update.hallId,
-          day: update.day,
-          thirtyMinutes,
-          type: update.type,
-          courtType: courtType,
-          court,
-        })),
+        ...update.hours.map(
+          ({
+            hour,
+            thirtyMinutes,
+            courtType,
+            court,
+            isMembersOnly = false,
+          }) => ({
+            hour,
+            id: update.id,
+            link: update.link,
+            hallId: update.hallId,
+            day: update.day,
+            thirtyMinutes,
+            type: update.type,
+            courtType: courtType,
+            isMembersOnly: isMembersOnly,
+            court,
+          })
+        ),
       ],
     };
     return state;

@@ -1,37 +1,61 @@
 import { scrape } from '../../api';
 import { addDays, format } from 'date-fns';
 import { AvailableHourUpdate, HallId, Hour } from 'shared';
+import { CheerioAPI } from 'cheerio';
+
+const getHour = (hour: string) => {
+  const s = hour.split(':');
+  return `${s[0].substring(s[0].length - 2)}:${s[1].substring(0, 2)}`;
+};
+
+const getCourt = (hour: string) => hour.split(':')[0].slice(0, -2).trim();
+
+const isMembersOnly = (hour: string) =>
+  !hour.toLocaleLowerCase().includes('varaa');
+
+const getHours = ($: CheerioAPI, selector: string, thirtyMinutes: boolean) =>
+  $(selector)
+    .map((_, e) => $(e).text())
+    .get()
+    .filter((hour) => !hour.toLocaleLowerCase().includes('cupra'))
+    .map((hour): Hour => {
+      return {
+        hour: getHour(hour),
+        courtType: 'INSIDE',
+        court: getCourt(hour),
+        thirtyMinutes,
+        isMembersOnly: isMembersOnly(hour),
+      };
+    });
 
 const scrapePadelhouse = async (
   url: string,
   hallId: HallId,
   date: Date
 ): Promise<AvailableHourUpdate> => {
-  const isoDate = format(date, 'yyyy-MM-dd');
   const $ = await scrape(url);
 
-  const hours = $("a:contains('Varaa')")
-    .map((_, e): Hour & { day: string } => {
-      const href = decodeURIComponent($(e).attr().href);
-      const day = href.split('alkuaika=')[1].slice(0, 10);
-      const hour = href.split('alkuaika=')[1].slice(11, 16);
-      const thirtyMinutes = !href.includes('kesto=60');
-      const court = $(e).text().split(' ')[0];
-      return {
-        hour,
-        courtType: 'INSIDE',
-        court,
-        thirtyMinutes,
-        day,
-      };
-    })
-    .get()
-    .filter((hour) => !hour.court.toUpperCase().includes('CUPRA'));
+  const dateTime = ($('#bookingcalform-p_pvm_custom').val() as string).split(
+    ' '
+  )[1];
+  const day = `${dateTime.slice(6, 10)}-${dateTime.slice(
+    3,
+    5
+  )}-${dateTime.slice(0, 2)}`;
+
+  const fullHours = getHours(
+    $,
+    'td[class*="s-avail"]:not(.s-avail-short)',
+    false
+  );
+
+  const shortHours = getHours($, 'td[class*="s-avail-short"]', true);
+
   return {
     hallId,
     id: hallId,
-    day: hours[0]?.day ?? isoDate,
-    hours,
+    day,
+    hours: [...fullHours, ...shortHours],
     link: url,
     type: 'PADEL',
   };

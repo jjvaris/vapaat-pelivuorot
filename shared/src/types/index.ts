@@ -57,6 +57,7 @@ export type AvailableHour = {
   day: string;
   hour: string;
   thirtyMinutes: boolean;
+  isMembersOnly: boolean;
   court?: string;
   courtType: CourtType;
   type: Type;
@@ -69,6 +70,7 @@ export type Hour = {
   thirtyMinutes: boolean;
   courtType: CourtType;
   court: string;
+  isMembersOnly?: boolean;
 };
 
 export type AvailableHourUpdate = {
