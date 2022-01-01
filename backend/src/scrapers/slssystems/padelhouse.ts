@@ -26,7 +26,7 @@ const scrapePadelhouse = async (
       };
     })
     .get()
-    .filter((hour) => !hour.court.includes('Cupra'));
+    .filter((hour) => !hour.court.toUpperCase().includes('CUPRA'));
   return {
     hallId,
     id: hallId,
