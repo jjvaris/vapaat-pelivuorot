@@ -205,6 +205,13 @@ export const halls: Hall[] = [
     coordinates: [60.625524, 24.8489827],
     types: ['PADEL'],
   },
+  {
+    id: 'tennismesta',
+    name: 'Tennismesta, Kera',
+    link: 'https://tennismesta.slsystems.fi/booking/booking-calendar',
+    coordinates: [60.0, 24.0],
+    types: ['TENNIS'],
+  },
 ];
 
 export function factory() {

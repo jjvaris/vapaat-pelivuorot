@@ -33,7 +33,8 @@ export type HallId =
   | 'finlandtammistiovantaa'
   | 'finlandvantaa'
   | 'padel-&-golf-plaza'
-  | 'padel-club-finland-monni,-hyvinkää';
+  | 'padel-club-finland-monni,-hyvinkää'
+  | 'tennismesta';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 
