@@ -185,7 +185,7 @@ function HallCard({
           />
           <button
             disabled={!hasHours}
-            className={c({ 'pointer-events-none': !hasHours })}
+            className={c('text-left', { 'pointer-events-none': !hasHours })}
             onClick={() => setIsOpen((open) => !open)}
           >
             <h3 className="text-white font-extralight text-md">{hall.name}</h3>
