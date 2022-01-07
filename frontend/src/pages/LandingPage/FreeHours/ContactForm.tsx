@@ -17,17 +17,13 @@ export default function ContactForm() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         message,
-        'form-name': 'contact-form',
+        'form-name': 'contact',
       }).toString(),
     });
   };
 
   return (
-    <form
-      className="mt-10 px-4"
-      name="Ota yhteyttä lomake"
-      onSubmit={handleSubmit}
-    >
+    <form className="mt-10 px-4" name="contact" onSubmit={handleSubmit}>
       <p className="text-gray-200 text-sm mt-4">
         Löysitkö virheen tai puuttuuko kenttä?
       </p>
