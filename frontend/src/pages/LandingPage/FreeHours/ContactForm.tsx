@@ -33,14 +33,14 @@ export default function ContactForm() {
       </p>
 
       <div className="mx-auto max-w-sm">
-        <label htmlFor="text" className="text-gray-600 text-xs block mt-4">
+        <label htmlFor="message" className="text-gray-600 text-xs block mt-4">
           Voit lähettää alla olevalla lomakkeella mitä tahansa palautetta!
         </label>
         <textarea
           className="w-full mt-2 text-xs text-gray-800 h-20"
           autoComplete="off"
-          name="text"
-          id="text"
+          name="message"
+          id="message"
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);
