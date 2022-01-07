@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 export default function ContactForm() {
   const [message, setMessage] = useState('');
   const [isSent, setIsSent] = useState(false);
-
-  const [params] = useSearchParams();
-  if (!params.get('experimental')) return null;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
