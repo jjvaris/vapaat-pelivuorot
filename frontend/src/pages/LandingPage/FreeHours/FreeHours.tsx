@@ -62,7 +62,7 @@ function Skeletons() {
 
 function Instructions() {
   return (
-    <div className="px-4 mt-14 space-y-3 text-xs ">
+    <div className="px-4 mt-14 space-y-3 text-xs">
       <div className="flex items-center text-green-500">
         <div className="flex justify-center p-1 w-11 h-6 border text-xs border-green-500 text-green-500 mr-4"></div>
         <div>Vapaa aika 60 min</div>

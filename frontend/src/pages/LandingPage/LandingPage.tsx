@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import ContactForm from './FreeHours/ContactForm';
 
 const SelectTypeLink = ({
   to,
@@ -56,6 +57,9 @@ export default function LandingPage() {
         </SelectTypeLink>
       </nav>
       <Outlet />
+      <footer>
+        <ContactForm />
+      </footer>
     </div>
   );
 }
