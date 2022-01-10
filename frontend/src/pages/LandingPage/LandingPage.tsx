@@ -59,6 +59,32 @@ export default function LandingPage() {
       <Outlet />
       <footer>
         <ContactForm />
+        <div className="flex mt-8 justify-center items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-12 w-12"
+            viewBox="0 0 752 752"
+          >
+            <path
+              d="m222.83 498.1c29.598-33.668 45.879-77.328 45.879-122.09 0-45.137-16.281-88.426-46.25-122.09-56.605 71.402-56.605 173.15 0.37109 244.19z"
+              fill="#facc15"
+              className="color000 svgShape"
+            />
+            <path
+              d="m446.3 376c0-55.129 20.348-108.04 57.348-148.73-73.258-62.898-182.03-62.898-255.29 0 37 40.699 57.348 93.609 57.348 148.73 0 54.02-19.609 106.19-55.496 146.88-0.73828 0.73828-1.8516 1.8516-1.8516 1.8516 73.258 62.898 182.03 62.898 255.66 0-0.73828-0.73828-1.4805-1.1094-1.8516-1.8516-36.258-40.695-55.867-92.863-55.867-146.88z"
+              fill="#facc15"
+              className="color000 svgShape"
+            />
+            <path
+              d="m529.55 498.1c56.977-71.406 56.977-173.15 0-244.19-29.969 33.668-46.25 76.957-46.25 122.09 0 45.141 16.281 88.43 46.25 122.1-0.37109 0-0.37109 0 0 0z"
+              fill="#facc15"
+              className="color000 svgShape"
+            />
+          </svg>
+        </div>
+        <p className="text-xs text-gray-500 mt-4">
+          www.pelivuorot.com &copy; {new Date().getFullYear()}
+        </p>
       </footer>
     </div>
   );
