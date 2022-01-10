@@ -1,5 +1,6 @@
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { format } from 'date-fns';
+import { isEmpty } from 'ramda';
 import React from 'react';
 import useSelectedDay from '../../../hooks/useSelectedDay';
 import useSelectedTime from '../../../hooks/useSelectedTime';
@@ -8,6 +9,11 @@ export default function TimePicker() {
   const [day] = useSelectedDay();
   const options = useOptions();
   const [time, setTime] = useSelectedTime();
+
+  if (isEmpty(getOptions(day))) {
+    return null;
+  }
+
   return (
     <div className="flex items-center text-green-500">
       <select
