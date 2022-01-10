@@ -25,7 +25,7 @@ export default function ContactForm() {
       </p>
 
       <div className="mx-auto max-w-sm">
-        <label htmlFor="message" className="text-gray-600 text-xs block mt-4">
+        <label htmlFor="message" className="text-gray-500 text-xs block mt-4">
           Voit lähettää alla olevalla lomakkeella mitä tahansa palautetta!
         </label>
         <textarea

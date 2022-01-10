@@ -179,16 +179,20 @@ function HallCard({
     <div key={hall.name} className="bg-gray-800 rounded-md p-4">
       <div className="flex justify-between mb-4">
         <div className="flex items-center">
-          <Favourite
-            isToggled={hall.favourite}
-            onToggle={() => onToggleFavourite(hall.id)}
-          />
+          <div>
+            <Favourite
+              isToggled={hall.favourite}
+              onToggle={() => onToggleFavourite(hall.id)}
+            />
+          </div>
           <button
             disabled={!hasHours}
             className={c('text-left', { 'pointer-events-none': !hasHours })}
             onClick={() => setIsOpen((open) => !open)}
           >
-            <h3 className="text-white font-extralight text-md">{hall.name}</h3>
+            <h3 className="text-white font-extralight text-sm xs:text-base">
+              {hall.name}
+            </h3>
           </button>
         </div>
         <a
