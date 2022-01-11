@@ -93,7 +93,7 @@ const getHours = (
     (hour) =>
       hour.day === searchDate &&
       hour.type === type &&
-      hour.hour >= time &&
+      hour.hour.trim() >= time &&
       ['INFLATED', 'INSIDE'].includes(hour.courtType) &&
       !isInPast(hour)
   );
@@ -113,7 +113,7 @@ const getHours = (
     if (!acc[cur.hallId]) {
       acc[cur.hallId] = {
         name: data.halls.find((hall) => hall.id === cur.hallId)?.name || '',
-        availableHours: [`${cur.hour};${cur.thirtyMinutes}`],
+        availableHours: [`${cur.hour.trim()};${cur.thirtyMinutes}`],
         freeHours: [cur],
         link: cur.link,
       };
@@ -123,7 +123,7 @@ const getHours = (
     acc[cur.hallId].availableHours = [
       ...new Set([
         ...acc[cur.hallId].availableHours,
-        `${cur.hour};${cur.thirtyMinutes}`,
+        `${cur.hour.trim()};${cur.thirtyMinutes}`,
       ]),
     ];
     return acc;
@@ -161,7 +161,7 @@ function mapToHours(hours?: string[]) {
       return true;
     })
     .map((hour) => ({
-      hour: hour.split(';')[0],
+      hour: hour.split(';')[0].trim(),
       thirtyMinutes: hour.split(';')[1] === 'true',
     }));
 }
@@ -221,6 +221,9 @@ function AvailableHours({ hall, isOpen }: { hall: Hall; isOpen: boolean }) {
 
 function FreeHours({ hall }: { hall: Hall }) {
   const hoursByCourt = groupBy((hour) => hour.court ?? 'N/A', hall.freeHours);
+  if (Object.keys(hoursByCourt).length === 1) {
+    return <FreeHoursCompact hall={hall} />;
+  }
   return (
     <div className="space-y-4">
       {Object.entries(hoursByCourt)
