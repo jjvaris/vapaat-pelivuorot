@@ -10,7 +10,7 @@ const getAvailableHours = async (url: string) => {
     )
     .map((_, e): Hour => {
       return {
-        hour: $(e).text().split(' - ')[0],
+        hour: $(e).text().split(' - ')[0].trim(),
         court: 'n/a',
         courtType: 'INSIDE',
         thirtyMinutes: false,

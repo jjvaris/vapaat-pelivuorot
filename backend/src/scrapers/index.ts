@@ -61,6 +61,8 @@ export {
   socialSportsClub,
   playtomic,
   tennismesta,
+  esport1TennisInside,
+  esport2TennisInside,
 };
 
 export default scrapers;
