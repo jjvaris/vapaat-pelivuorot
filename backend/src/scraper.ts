@@ -8,8 +8,10 @@ import scrapers, {
   playtomic,
   padelrocks,
   tennismesta,
+  arenaCenterMyllypuro,
   esport1TennisInside,
   esport2TennisInside,
+  smashCenterPadel,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 

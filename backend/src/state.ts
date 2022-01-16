@@ -53,10 +53,10 @@ export const halls: Hall[] = [
   },
   {
     id: 'smash-center-helsinki',
-    name: 'Smash Center Helsinki',
+    name: 'Smash Center Helsinki, Myllypuro',
     link: 'https://smashcenter.slsystems.fi/booking/booking-calendar',
     coordinates: [1, 2],
-    types: ['TENNIS'],
+    types: ['TENNIS', 'PADEL'],
   },
   {
     id: 'smash-center-olari',
@@ -211,6 +211,13 @@ export const halls: Hall[] = [
     link: 'https://tennismesta.slsystems.fi/booking/booking-calendar',
     coordinates: [60.0, 24.0],
     types: ['TENNIS'],
+  },
+  {
+    id: 'arena-center-padel-myllypuro',
+    name: 'Arena Center Padel, Myllypuro',
+    link: 'https://smashcenter.slsystems.fi/booking/booking-calendar?BookingCalForm%5Bp_laji%5D=10&BookingCalForm%5Bp_pvm%5D=2022-01-16&BookingCalForm%5Bp_pvm_interval%5D=&BookingCalForm%5Bp_calmode%5D=2&BookingCalForm%5Bp_pvm_custom%5D=Sunnuntai+16.01.2022',
+    coordinates: [60.0, 24.0],
+    types: ['PADEL'],
   },
 ];
 

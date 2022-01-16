@@ -34,6 +34,7 @@ export type HallId =
   | 'finlandvantaa'
   | 'padel-&-golf-plaza'
   | 'padel-club-finland-monni,-hyvinkää'
+  | 'arena-center-padel-myllypuro'
   | 'tennismesta';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
