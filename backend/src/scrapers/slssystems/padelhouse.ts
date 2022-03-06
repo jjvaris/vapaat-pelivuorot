@@ -21,7 +21,9 @@ const getHours = ($: CheerioAPI, selector: string, thirtyMinutes: boolean) =>
     .map((hour): Hour => {
       return {
         hour: getHour(hour),
-        courtType: 'INSIDE',
+        courtType: getCourt(hour).toLocaleLowerCase().includes('tykki')
+          ? 'BALL-LAUNCHER'
+          : 'INSIDE',
         court: getCourt(hour),
         thirtyMinutes,
         isMembersOnly: isMembersOnly(hour),
