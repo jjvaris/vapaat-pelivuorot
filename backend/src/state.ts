@@ -108,9 +108,9 @@ export const halls: Hall[] = [
     types: ['PADEL'],
   },
   {
-    id: 'padelpoint',
-    name: 'Padelpoint',
-    link: 'https://play.fi/padelpoint/booking/booking-calendar',
+    id: 'padelpoint-konala',
+    name: 'PadelPoint Konala',
+    link: 'https://playtomic.io/',
     coordinates: [1, 2],
     types: ['PADEL'],
   },
@@ -218,6 +218,13 @@ export const halls: Hall[] = [
     link: 'https://smashcenter.slsystems.fi/booking/booking-calendar?BookingCalForm%5Bp_laji%5D=10&BookingCalForm%5Bp_pvm%5D=2022-01-16&BookingCalForm%5Bp_pvm_interval%5D=&BookingCalForm%5Bp_calmode%5D=2&BookingCalForm%5Bp_pvm_custom%5D=Sunnuntai+16.01.2022',
     coordinates: [60.0, 24.0],
     types: ['PADEL'],
+  },
+  {
+    id: 'hiekkaharjuntenniskeskus',
+    name: 'Hiekkaharjun Tenniskeskus',
+    link: 'https://playtomic.io/',
+    coordinates: [1, 2],
+    types: ['TENNIS'],
   },
 ];
 

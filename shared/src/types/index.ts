@@ -22,7 +22,7 @@ export type HallId =
   | 'billebeinopadel'
   | 'hiekkabeach'
   | 'padelrocks'
-  | 'padelpoint'
+  | 'padelpoint-konala'
   | 'social-sports-club'
   | 'finlandsuomenojaespoo'
   | 'finlandkiloespoo'
@@ -35,7 +35,8 @@ export type HallId =
   | 'padel-&-golf-plaza'
   | 'padel-club-finland-monni,-hyvinkää'
   | 'arena-center-padel-myllypuro'
-  | 'tennismesta';
+  | 'tennismesta'
+  | 'hiekkaharjuntenniskeskus';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 
