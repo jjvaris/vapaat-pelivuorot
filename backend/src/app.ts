@@ -24,7 +24,7 @@ router.get('/api/mock', (req, res) => res.send(mock));
 
 router.get('/api/available-hours', (req, res) => res.send(state.get()));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.listen(port, () => {
   console.log(`Timezones by location application is running on port ${port}.`);

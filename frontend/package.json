@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "start:local": "REACT_APP_BACKEND_HOST=http://localhost:5000 craco start",
+    "start:local": "REACT_APP_BACKEND_HOST=http://localhost:5001 craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
