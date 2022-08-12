@@ -36,7 +36,8 @@ export type HallId =
   | 'padel-club-finland-monni,-hyvinkää'
   | 'arena-center-padel-myllypuro'
   | 'tennismesta'
-  | 'hiekkaharjuntenniskeskus';
+  | 'hiekkaharjuntenniskeskus'
+  | 'open-padel-martinlaakso';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 

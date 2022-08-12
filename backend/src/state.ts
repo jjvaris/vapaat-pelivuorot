@@ -226,6 +226,13 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
+  {
+    id: 'open-padel-martinlaakso',
+    name: 'Open Padel Martinlaakso',
+    link: 'https://playtomic.io/',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
 ];
 
 export function factory() {
