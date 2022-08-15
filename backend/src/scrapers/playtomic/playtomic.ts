@@ -86,8 +86,8 @@ export async function playtomic(date: Date): Promise<AvailableHourUpdate[]> {
 
   const day = format(date, 'yyyy-MM-dd');
 
-  const padelUrl = `https://playtomic.io/api/v1/availability?user_id=me&tenant_id=${padelTenantIds}&sport_id=PADEL&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
-  const tennisUrl = `https://playtomic.io/api/v1/availability?user_id=me&tenant_id=${tennisTenantIds}&sport_id=TENNIS&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
+  const padelUrl = `http://api.playtomic.io/v1/availability?user_id=me&tenant_id=${padelTenantIds}&sport_id=PADEL&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
+  const tennisUrl = `http://api.playtomic.io/v1/availability?user_id=me&tenant_id=${tennisTenantIds}&sport_id=TENNIS&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
 
   const { data: padelData } = await get<typeof resources>(padelUrl);
   const { data: tennisData } = await get<typeof resources>(tennisUrl);
