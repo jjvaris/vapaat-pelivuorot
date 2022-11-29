@@ -23,7 +23,7 @@
     "start": "yarn workspace backend start",
     "build": "yarn workspace shared build && yarn workspace backend build",
     "build:frontend": "yarn workspace shared build && yarn workspace frontend build",
-    "deploy:backend": "git push heroku master:main",
+    "deploy:backend": "flyctl deploy",
     "dev:backend": "yarn workspace backend serve",
     "dev:frontend": "yarn workspace frontend start",
     "dev:frontend:local": "yarn workspace frontend start:local"

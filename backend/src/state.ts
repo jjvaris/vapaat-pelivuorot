@@ -131,13 +131,15 @@ export const halls: Hall[] = [
   //   coordinates: [1, 2],
   //   types: ['PADEL'],
   // },
-  {
-    id: 'superpadel-siltamäkii',
-    name: 'Superpadel - Siltamäki',
-    link: 'https://playtomic.io/',
-    coordinates: [60.166183, 24.703338],
-    types: ['PADEL'],
-  },
+
+  // outside courts only
+  // {
+  //   id: 'superpadel-siltamäkii',
+  //   name: 'Superpadel - Siltamäki',
+  //   link: 'https://playtomic.io/',
+  //   coordinates: [60.166183, 24.703338],
+  //   types: ['PADEL'],
+  // },
   {
     id: 'padel-club-finland,-pirkkola',
     name: 'Padel Club Finland - Pirkkola',
