@@ -14,7 +14,6 @@ import { tennismesta } from './slssystems/tennismesta';
 import { arenaCenterMyllypuro } from './slssystems/arenaCenterMyllypuro';
 import { smashCenterPadel } from './slssystems/smashCenterPadel';
 import { AvailableHourUpdate } from 'shared';
-import billebeino from './padel/billebeino';
 import { hiekkabeach } from './padel/hiekkabeach';
 import { padelrocks } from './padel/padelrocks';
 import { socialSportsClub } from './padel/socialSportsClub';
@@ -45,7 +44,6 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'tennismesta', scraper: tennismesta },
   { name: 'arena-center-padel-myllypuro', scraper: arenaCenterMyllypuro },
   { name: 'smash-center-padel-myllypuro', scraper: smashCenterPadel },
-  { name: 'billebeinopadel', scraper: billebeino },
   //{ name: 'hiekkabeach', scraper: hiekkabeach },
   { name: 'padelrocks', scraper: padelrocks },
   { name: 'social-sports-club', scraper: socialSportsClub },

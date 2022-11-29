@@ -26,10 +26,10 @@ const scrapeByDate = (
   name: string,
   fn: (date: Date) => Promise<AvailableHourUpdate | AvailableHourUpdate[]>
 ) => {
-  console.log('scraping', name);
+  //console.log('scraping', name);
   fn(date)
     .then(state.updateAvailableHours)
-    .then(() => console.log(`scraping ${date} ${name} completed`))
+    //.then(() => console.log(`scraping ${date} ${name} completed`))
     .catch((e) => console.log(`scraping ${date} ${name} failed`, e));
 };
 
@@ -45,8 +45,9 @@ const resolveTimeout = () => {
 };
 
 export function start() {
+  console.log('Starting scrapers');
   scrapeLoop();
-  //scrapeByDate(parseISO('2021-12-12'), 'playtomic', playtomic);
+  //scrapeByDate(parseISO('2022-11-30'), 'playtomic', playtomic);
   //scrapeAll();
   cleanLoop();
 }
@@ -59,7 +60,7 @@ function scrapeLoop() {
 }
 
 function cleanLoop() {
-  console.log('cleaning');
+  //console.log('cleaning');
   setTimeout(() => {
     state.clean();
     cleanLoop();
@@ -75,7 +76,7 @@ export function scrapeAll() {
 }
 
 function scrapeAllByDate(date: Date) {
-  console.log('Scheduling all scrapers to scrape ', format(date, 'yyyy-MM-dd'));
+  //console.log('Scheduling all scrapers to scrape ', format(date, 'yyyy-MM-dd'));
   scrapers.forEach(({ name, scraper }) =>
     schedule(() => scrapeByDate(date, name, scraper))
   );

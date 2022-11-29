@@ -1,13 +1,9 @@
-# fly.toml file generated for vapaat-pelivuorot on 2021-11-08T18:19:05+02:00
+# fly.toml file generated for vapaat-pelivuorot on 2022-11-29T20:51:30+02:00
 
 app = "vapaat-pelivuorot"
-
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  builder = "heroku/buildpacks:20"
 
 [env]
   PORT = "8080"
@@ -23,13 +19,13 @@ processes = []
   processes = ["app"]
   protocol = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
     type = "connections"
 
   [[services.ports]]
+    force_https = true
     handlers = ["http"]
     port = 80
 

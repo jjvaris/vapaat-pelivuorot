@@ -27,8 +27,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start",
-    "start:local": "REACT_APP_BACKEND_HOST=http://localhost:5001 craco start",
+    "start": "craco --openssl-legacy-provider start",
+    "start:local": "REACT_APP_BACKEND_HOST=http://localhost:8080 craco --openssl-legacy-provider start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

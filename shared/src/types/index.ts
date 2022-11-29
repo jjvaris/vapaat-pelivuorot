@@ -19,7 +19,7 @@ export type HallId =
   | 'laajasalon-tenniskeskus'
   | 'padelhouse'
   | 'padelhouse-uusi'
-  | 'billebeinopadel'
+  | 'billebeino-padel-train-factory'
   | 'hiekkabeach'
   | 'padelrocks'
   | 'padelpoint-konala'
@@ -37,7 +37,9 @@ export type HallId =
   | 'arena-center-padel-myllypuro'
   | 'tennismesta'
   | 'hiekkaharjuntenniskeskus'
-  | 'open-padel-martinlaakso';
+  | 'open-padel-martinlaakso'
+  | 'padel-club-finland,-pirkkola'
+  | 'superpadel-siltamäkii';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 
