@@ -27,7 +27,7 @@ export const halls: Hall[] = [
   {
     id: 'tapiolan-tennispuisto',
     name: 'Tapiolan Tennispuisto',
-    link: 'https://play.fi/tapiolantennispuisto/booking/booking-calendar',
+    link: 'https://playtomic.io/tapiolan-tennispuisto/2038ebe9-7062-453f-8e3d-f1c179890ce7',
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
@@ -38,13 +38,14 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
-  {
-    id: 'helsingin-mailapelikeskus',
-    name: 'Helsingin Mailapelikeskus',
-    link: 'https://play.fi/mailapelikeskus/booking/booking-calendar',
-    coordinates: [1, 2],
-    types: ['TENNIS'],
-  },
+  // broken new service
+  // {
+  //   id: 'helsingin-mailapelikeskus',
+  //   name: 'Helsingin Mailapelikeskus',
+  //   link: 'https://play.fi/mailapelikeskus/booking/booking-calendar',
+  //   coordinates: [1, 2],
+  //   types: ['TENNIS'],
+  // },
   {
     id: 'esport-center-tapiola',
     name: 'Esport Center Tapiola',
