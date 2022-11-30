@@ -4,7 +4,7 @@ import { AvailableHour, HallId, State, Type } from 'shared';
 import { format, parseISO } from 'date-fns';
 import Favourite from './Favourite';
 import useFavourites from './useFavourites';
-import { ExternalLinkIcon } from '@heroicons/react/solid';
+import { ChevronDownIcon, ExternalLinkIcon } from '@heroicons/react/solid';
 import c from 'classnames';
 import TimePicker from '../TimePicker/TimePicker';
 
@@ -190,9 +190,14 @@ function HallCard({
             className={c('text-left', { 'pointer-events-none': !hasHours })}
             onClick={() => setIsOpen((open) => !open)}
           >
-            <h3 className="text-white font-extralight text-sm xs:text-base">
-              {hall.name}
-            </h3>
+            <div className="flex items-center">
+              <h3 className="text-white font-extralight text-sm xs:text-base">
+                {hall.name}
+              </h3>
+              {hasHours && (
+                <ChevronDownIcon className="ml-1 h-5 w-5 text-green-500" />
+              )}
+            </div>
           </button>
         </div>
         <a
@@ -221,9 +226,6 @@ function AvailableHours({ hall, isOpen }: { hall: Hall; isOpen: boolean }) {
 
 function FreeHours({ hall }: { hall: Hall }) {
   const hoursByCourt = groupBy((hour) => hour.court ?? 'N/A', hall.freeHours);
-  if (Object.keys(hoursByCourt).length === 1) {
-    return <FreeHoursCompact hall={hall} />;
-  }
   return (
     <div className="space-y-4">
       {Object.entries(hoursByCourt)
