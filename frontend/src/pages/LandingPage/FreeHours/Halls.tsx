@@ -195,7 +195,7 @@ function HallCard({
                 {hall.name}
               </h3>
               {hasHours && (
-                <ChevronDownIcon className="ml-1 h-5 w-5 text-green-500" />
+                <ChevronDownIcon className="flex-none ml-1 h-5 w-5 text-green-500" />
               )}
             </div>
           </button>
