@@ -15,9 +15,9 @@ import { arenaCenterMyllypuro } from './slssystems/arenaCenterMyllypuro';
 import { smashCenterPadel } from './slssystems/smashCenterPadel';
 import { AvailableHourUpdate } from 'shared';
 import { hiekkabeach } from './padel/hiekkabeach';
-import { padelrocks } from './padel/padelrocks';
 import { socialSportsClub } from './padel/socialSportsClub';
 import { playtomic } from './playtomic/playtomic';
+import { padelrocks } from './matchi/matchi';
 
 type Scraper = (
   date: Date

@@ -116,14 +116,13 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['PADEL'],
   },
-  // new system matchi
-  // {
-  //   id: 'padelrocks',
-  //   name: 'Padel Rocks',
-  //   link: 'https://play.fi/padelrocks/booking/booking-calendar',
-  //   coordinates: [1, 2],
-  //   types: ['PADEL'],
-  // },
+  {
+    id: 'padelrocks',
+    name: 'Padel Rocks',
+    link: 'https://www.matchi.se/facilities/padelrocks?lang=fi',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
   // new system: matchi
   // {
   //   id: 'social-sports-club',
