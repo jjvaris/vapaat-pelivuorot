@@ -123,15 +123,20 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['PADEL'],
   },
-  // new system: matchi
-  // {
-  //   id: 'social-sports-club',
-  //   name: 'Social Sports Club',
-  //   link: 'https://play.fi/socialsportsclub/booking/booking-calendar',
-  //   coordinates: [1, 2],
-  //   types: ['PADEL'],
-  // },
-
+  {
+    id: 'the-park-padel-konala',
+    name: 'The Park Padel Konala',
+    link: 'https://www.matchi.se/facilities/THEPARKKONALA',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
+  {
+    id: 'social-sports-club',
+    name: 'Social Sports Club',
+    link: 'https://www.matchi.se/facilities/socialsportsclub',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
   // outside courts only
   // {
   //   id: 'superpadel-siltamäkii',

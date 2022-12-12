@@ -15,9 +15,13 @@ import { arenaCenterMyllypuro } from './slssystems/arenaCenterMyllypuro';
 import { smashCenterPadel } from './slssystems/smashCenterPadel';
 import { AvailableHourUpdate } from 'shared';
 import { hiekkabeach } from './padel/hiekkabeach';
-import { socialSportsClub } from './padel/socialSportsClub';
 import { playtomic } from './playtomic/playtomic';
-import { padelrocks } from './matchi/matchi';
+import {
+  padelrocks,
+  matchiScrapers,
+  theParkPadelKonala,
+  socialSportsClub,
+} from './matchi/matchi';
 
 type Scraper = (
   date: Date
@@ -46,8 +50,8 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'smash-center-padel-myllypuro', scraper: smashCenterPadel },
   //{ name: 'hiekkabeach', scraper: hiekkabeach },
   { name: 'padelrocks', scraper: padelrocks },
-  { name: 'social-sports-club', scraper: socialSportsClub },
   { name: 'playtomic', scraper: playtomic },
+  ...matchiScrapers,
 ];
 
 export {
@@ -57,13 +61,14 @@ export {
   padelrocks,
   padelhouse,
   padelhouseUusi,
-  socialSportsClub,
   playtomic,
   tennismesta,
   arenaCenterMyllypuro,
   smashCenterPadel,
   esport1TennisInside,
   esport2TennisInside,
+  theParkPadelKonala,
+  socialSportsClub,
 };
 
 export default scrapers;

@@ -6,7 +6,8 @@ const matchi = async (
   url: string,
   hallId: HallId,
   date: Date,
-  courtToType: (court: string) => CourtType
+  courtToType: (court: string) => CourtType,
+  link: string
 ): Promise<AvailableHourUpdate> => {
   const $ = await scrape(url);
 
@@ -65,20 +66,51 @@ const matchi = async (
     id: hallId,
     day: format(date, 'yyyy-MM-dd'),
     hours: combined,
-    link: 'https://www.matchi.se/facilities/padelrocks?lang=fi',
+    link,
     type: 'PADEL',
   };
 };
 
-export function padelrocks(date: Date) {
+const getUrl = (date: Date, facility: string) => {
   const day = format(date, 'yyyy-MM-dd');
+  return `https://www.matchi.se/book/schedule?wl=&facilityId=${facility}&date=${day}&sport=5&week=&year=&_=167031514${
+    Math.floor(Math.random() * (9999 - 1000)) + 1000
+  }`;
+};
+
+export function padelrocks(date: Date) {
   return matchi(
-    `https://www.matchi.se/book/schedule?wl=&facilityId=2070&date=${day}&sport=5&week=&year=&_=167031514${
-      Math.floor(Math.random() * (9999 - 1000)) + 1000
-    }`,
+    getUrl(date, '2070'),
     'padelrocks',
     date,
     (court) =>
-      court.toLowerCase().includes('single') ? 'PADEL-TWO-PLAYER' : 'INSIDE'
+      court.toLowerCase().includes('single') ? 'PADEL-TWO-PLAYER' : 'INSIDE',
+    'https://www.matchi.se/facilities/padelrocks?lang=fi'
   );
 }
+
+export function theParkPadelKonala(date: Date) {
+  return matchi(
+    getUrl(date, '2062'),
+    'the-park-padel-konala',
+    date,
+    () => 'INSIDE',
+    'https://www.matchi.se/facilities/THEPARKKONALA'
+  );
+}
+
+export function socialSportsClub(date: Date) {
+  return matchi(
+    getUrl(date, '1953'),
+    'social-sports-club',
+    date,
+    () => 'INSIDE',
+    'https://www.matchi.se/facilities/socialsportsclub'
+  );
+}
+
+export const matchiScrapers = [
+  { name: 'padelrocks', scraper: padelrocks },
+  { name: 'the-park-padel-konala', scraper: padelrocks },
+  { name: 'social-sports-club', scraper: socialSportsClub },
+] as const;

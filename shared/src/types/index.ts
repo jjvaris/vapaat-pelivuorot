@@ -39,7 +39,8 @@ export type HallId =
   | 'hiekkaharjuntenniskeskus'
   | 'open-padel-martinlaakso'
   | 'padel-club-finland,-pirkkola'
-  | 'superpadel-siltamäkii';
+  | 'superpadel-siltamäkii'
+  | 'the-park-padel-konala';
 
 export type Type = 'TENNIS' | 'PADEL' | 'BADMINTON' | 'SQUASH';
 
