@@ -1,13 +1,14 @@
 import { scrape } from '../../api';
 import { format } from 'date-fns';
-import { AvailableHourUpdate, CourtType, HallId, Hour } from 'shared';
+import { AvailableHourUpdate, CourtType, HallId, Hour, Type } from 'shared';
 
 const matchi = async (
   url: string,
   hallId: HallId,
   date: Date,
   courtToType: (court: string) => CourtType,
-  link: string
+  link: string,
+  type: Type = 'PADEL'
 ): Promise<AvailableHourUpdate> => {
   const $ = await scrape(url);
 
@@ -16,10 +17,12 @@ const matchi = async (
       const title = $(e).attr('title') ?? '';
       const court = title.split('<br>')[1];
       const hours = title.split('<br>')[2].trim();
+      const firstMinute = hours[3];
+      const secondMinute = hours[11];
       return {
         court,
         courtType: courtToType(court),
-        thirtyMinutes: true,
+        thirtyMinutes: firstMinute !== secondMinute,
         hour: hours.substring(0, 5),
         isMembersOnly: false,
       };
@@ -67,13 +70,19 @@ const matchi = async (
     day: format(date, 'yyyy-MM-dd'),
     hours: combined,
     link,
-    type: 'PADEL',
+    type,
   };
 };
 
-const getUrl = (date: Date, facility: string) => {
+const getUrl = (
+  date: Date,
+  facilityId: string,
+  type: 'PADEL' | 'TENNIS' = 'PADEL'
+) => {
+  const typeToSportId = { PADEL: '5', TENNIS: '1' };
+  const sport = typeToSportId[type];
   const day = format(date, 'yyyy-MM-dd');
-  return `https://www.matchi.se/book/schedule?wl=&facilityId=${facility}&date=${day}&sport=5&week=&year=&_=167031514${
+  return `https://www.matchi.se/book/schedule?wl=&facilityId=${facilityId}&date=${day}&sport=${sport}&week=&year=&_=167031514${
     Math.floor(Math.random() * (9999 - 1000)) + 1000
   }`;
 };
@@ -109,8 +118,20 @@ export function socialSportsClub(date: Date) {
   );
 }
 
+export function varisto(date: Date) {
+  return matchi(
+    getUrl(date, '2067', 'TENNIS'),
+    'varisto',
+    date,
+    () => 'INSIDE',
+    'https://www.matchi.se/facilities/varistontennis',
+    'TENNIS'
+  );
+}
+
 export const matchiScrapers = [
   { name: 'padelrocks', scraper: padelrocks },
-  { name: 'the-park-padel-konala', scraper: padelrocks },
+  { name: 'the-park-padel-konala', scraper: theParkPadelKonala },
   { name: 'social-sports-club', scraper: socialSportsClub },
+  { name: 'varisto', scraper: varisto },
 ] as const;

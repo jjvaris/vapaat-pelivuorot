@@ -216,6 +216,14 @@ function HallCard({
 }
 
 function AvailableHours({ hall, isOpen }: { hall: Hall; isOpen: boolean }) {
+  if (hall.id === 'meilahti') {
+    return (
+      <div className="text-pink-500 text-sm font-light">
+        Tarkasta vapaat vuorot meilahden omasta järjestelmästä
+      </div>
+    );
+  }
+
   if (hall.availableHours.length === 0) {
     return (
       <div className="text-pink-500 text-sm font-light">Ei vapaita vuoroja</div>

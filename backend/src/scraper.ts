@@ -13,6 +13,7 @@ import scrapers, {
   esport2TennisInside,
   smashCenterPadel,
   theParkPadelKonala,
+  varisto,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 

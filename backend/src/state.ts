@@ -5,14 +5,14 @@ export const halls: Hall[] = [
   {
     id: 'meilahti',
     name: 'Meilahden liikuntakeskus',
-    link: 'https://meilahti.slsystems.fi/booking/booking-calendar',
+    link: 'https://meilahdenliikuntakeskus.cintoia.com/',
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
   {
     id: 'varisto',
     name: 'Variston Tenniskeskus',
-    link: 'https://play.fi/varisto/booking/booking-calendar',
+    link: 'https://www.matchi.se/facilities/varistontennis',
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
@@ -225,7 +225,7 @@ export const halls: Hall[] = [
   {
     id: 'tennismesta',
     name: 'Tennismesta, Kera',
-    link: 'https://tennismesta.slsystems.fi/booking/booking-calendar',
+    link: 'https://playtomic.io/tennismesta/e65484f9-9f82-45ea-8e14-fffde2b0fd64',
     coordinates: [60.0, 24.0],
     types: ['TENNIS'],
   },

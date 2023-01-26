@@ -21,6 +21,7 @@ import {
   matchiScrapers,
   theParkPadelKonala,
   socialSportsClub,
+  varisto,
 } from './matchi/matchi';
 
 type Scraper = (
@@ -69,6 +70,7 @@ export {
   esport2TennisInside,
   theParkPadelKonala,
   socialSportsClub,
+  varisto,
 };
 
 export default scrapers;
