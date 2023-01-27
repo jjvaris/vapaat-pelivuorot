@@ -1,6 +1,5 @@
 import meilahti from './meilahti';
 import { targaTennisInside, targaPadelInside } from './targa';
-import { varistoTennisInside } from './varisto';
 import { talitaivallahti } from './talitaivallahti';
 import { mandalumTennisInside } from './mandalum';
 import { tapiolanTennispuistoInside } from './tapiolanTennispuisto';
@@ -10,7 +9,6 @@ import { smashCenterHelsinki } from './smashHelsinki';
 import { smashCenterOlari } from './smashOlari';
 import { laajasalonTenniskeskus } from './laajasalo';
 import { padelhouse, padelhouseUusi } from './slssystems/padelhouse';
-import { tennismesta } from './slssystems/tennismesta';
 import { arenaCenterMyllypuro } from './slssystems/arenaCenterMyllypuro';
 import { smashCenterPadel } from './slssystems/smashCenterPadel';
 import { AvailableHourUpdate } from 'shared';
@@ -32,7 +30,6 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'meilahti', scraper: meilahti },
   { name: 'targa', scraper: targaTennisInside },
   { name: 'targa-padel', scraper: targaPadelInside },
-  { name: 'varisto', scraper: varistoTennisInside },
   { name: 'mandalum-center', scraper: mandalumTennisInside },
   { name: 'tapiolan-tennispuisto', scraper: tapiolanTennispuistoInside },
   {
@@ -46,7 +43,6 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   // { name: 'laajasalon-tenniskeskus', scraper: laajasalonTenniskeskus },
   { name: 'padelhouse', scraper: padelhouse },
   { name: 'padelhouse-uusi', scraper: padelhouseUusi },
-  { name: 'tennismesta', scraper: tennismesta },
   { name: 'arena-center-padel-myllypuro', scraper: arenaCenterMyllypuro },
   { name: 'smash-center-padel-myllypuro', scraper: smashCenterPadel },
   //{ name: 'hiekkabeach', scraper: hiekkabeach },
@@ -63,7 +59,6 @@ export {
   padelhouse,
   padelhouseUusi,
   playtomic,
-  tennismesta,
   arenaCenterMyllypuro,
   smashCenterPadel,
   esport1TennisInside,

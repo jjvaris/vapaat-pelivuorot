@@ -7,7 +7,6 @@ import scrapers, {
   socialSportsClub,
   playtomic,
   padelrocks,
-  tennismesta,
   arenaCenterMyllypuro,
   esport1TennisInside,
   esport2TennisInside,

@@ -216,10 +216,10 @@ function HallCard({
 }
 
 function AvailableHours({ hall, isOpen }: { hall: Hall; isOpen: boolean }) {
-  if (hall.id === 'meilahti') {
+  if (['meilahti', 'mandalum-center'].includes(hall.id)) {
     return (
       <div className="text-pink-500 text-sm font-light">
-        Tarkasta vapaat vuorot meilahden omasta järjestelmästä
+        Tarkasta vapaat vuorot omasta järjestelmästä
       </div>
     );
   }
