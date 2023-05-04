@@ -13,7 +13,7 @@ import { resources } from './resources';
 import { halls as hallsInSystem } from '../../state';
 import { utcToZonedTime } from 'date-fns-tz';
 
-const hasIndoorDoubleCourt = (tenant: typeof tentants[0]) =>
+const hasIndoorDoubleCourt = (tenant: (typeof tentants)[0]) =>
   tenant.resources.some(
     (court) =>
       court.is_active &&
@@ -63,7 +63,7 @@ const hallsByResourceId = halls.reduce((acc, hall) => {
     .filter((court) => !court.name.includes('(ei padelkenttä)'))
     .forEach((court) => (acc[court.resourceId] = hall));
   return acc;
-}, {} as Record<string, typeof halls[0]>);
+}, {} as Record<string, (typeof halls)[0]>);
 
 const toCourtType = (type: string, double: boolean): CourtType =>
   !double ? 'PADEL-TWO-PLAYER' : type === 'indoor' ? 'INSIDE' : 'OUTSIDE';
@@ -86,8 +86,8 @@ export async function playtomic(date: Date): Promise<AvailableHourUpdate[]> {
 
   const day = format(date, 'yyyy-MM-dd');
 
-  const padelUrl = `http://api.playtomic.io/v1/availability?user_id=me&tenant_id=${padelTenantIds}&sport_id=PADEL&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
-  const tennisUrl = `http://api.playtomic.io/v1/availability?user_id=me&tenant_id=${tennisTenantIds}&sport_id=TENNIS&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
+  const padelUrl = `https://playtomic.io/api/v1/availability?user_id=me&tenant_id=${padelTenantIds}&sport_id=PADEL&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
+  const tennisUrl = `https://playtomic.io/api/v1/availability?user_id=me&tenant_id=${tennisTenantIds}&sport_id=TENNIS&local_start_min=${day}T05%3A00%3A00&local_start_max=${day}T23%3A00%3A00`;
 
   const { data: padelData } = await get<typeof resources>(padelUrl);
   const { data: tennisData } = await get<typeof resources>(tennisUrl);
