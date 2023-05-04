@@ -13,6 +13,7 @@ import scrapers, {
   smashCenterPadel,
   theParkPadelKonala,
   varisto,
+  billebeino,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
 

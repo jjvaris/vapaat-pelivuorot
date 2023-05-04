@@ -20,6 +20,7 @@ import {
   theParkPadelKonala,
   socialSportsClub,
   varisto,
+  billebeino,
 } from './matchi/matchi';
 
 type Scraper = (
@@ -66,6 +67,7 @@ export {
   theParkPadelKonala,
   socialSportsClub,
   varisto,
+  billebeino,
 };
 
 export default scrapers;

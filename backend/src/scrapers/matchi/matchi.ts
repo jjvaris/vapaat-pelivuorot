@@ -129,9 +129,21 @@ export function varisto(date: Date) {
   );
 }
 
+export function billebeino(date: Date) {
+  return matchi(
+    getUrl(date, '2257'),
+    'billebeino-padel-train-factory',
+    date,
+    () => 'INSIDE',
+    'https://www.matchi.se/facilities/billebeinohelsinki',
+    'PADEL'
+  );
+}
+
 export const matchiScrapers = [
   { name: 'padelrocks', scraper: padelrocks },
   { name: 'the-park-padel-konala', scraper: theParkPadelKonala },
   { name: 'social-sports-club', scraper: socialSportsClub },
   { name: 'varisto', scraper: varisto },
+  { name: 'billebeino', scraper: billebeino },
 ] as const;
