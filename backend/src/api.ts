@@ -9,6 +9,9 @@ export const getByProxy = (url: string) =>
 
 export const get = <T = any>(url: string) => client.get<T>(url);
 
+export const post = <T = any>(url: string, body?: any) =>
+  client.post<T>(url, body);
+
 export const scrape = async (url: string) =>
   cheerio.load((await get(url)).data);
 

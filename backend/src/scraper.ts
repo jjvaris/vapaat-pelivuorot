@@ -2,8 +2,6 @@ import state from './state';
 import { format, addDays, parseISO } from 'date-fns';
 import scrapers, {
   talitaivallahti,
-  padelhouse,
-  padelhouseUusi,
   socialSportsClub,
   playtomic,
   padelrocks,
@@ -11,11 +9,11 @@ import scrapers, {
   esport1TennisInside,
   esport2TennisInside,
   smashCenterPadel,
-  theParkPadelKonala,
   varisto,
   billebeino,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
+import { padelhouse } from './scrapers/cintoia/cintoia';
 
 const random = (max: number, min = 0) =>
   Math.floor(Math.random() * (max - min) + min);
@@ -49,7 +47,7 @@ const resolveTimeout = () => {
 export function start() {
   console.log('Starting scrapers');
   scrapeLoop();
-  //scrapeByDate(parseISO('2022-11-30'), 'playtomic', playtomic);
+  //scrapeByDate(parseISO('2023-11-08'), 'test', padelhouse);
   //scrapeAll();
   cleanLoop();
 }

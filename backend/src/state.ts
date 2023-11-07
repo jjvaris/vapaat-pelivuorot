@@ -91,14 +91,7 @@ export const halls: Hall[] = [
   {
     id: 'padelhouse',
     name: 'Padel House',
-    link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
-    coordinates: [1, 2],
-    types: ['PADEL'],
-  },
-  {
-    id: 'padelhouse-uusi',
-    name: 'Padel House (uusi)',
-    link: 'https://padelhouse.slsystems.fi/booking/booking-calendar',
+    link: 'https://padelhouse.cintoia.com/',
     coordinates: [1, 2],
     types: ['PADEL'],
   },

@@ -8,7 +8,6 @@ import { esport1TennisInside, esport2TennisInside } from './esportTapiola';
 import { smashCenterHelsinki } from './smashHelsinki';
 import { smashCenterOlari } from './smashOlari';
 import { laajasalonTenniskeskus } from './laajasalo';
-import { padelhouse, padelhouseUusi } from './slssystems/padelhouse';
 import { arenaCenterMyllypuro } from './slssystems/arenaCenterMyllypuro';
 import { smashCenterPadel } from './slssystems/smashCenterPadel';
 import { AvailableHourUpdate } from 'shared';
@@ -17,11 +16,11 @@ import { playtomic } from './playtomic/playtomic';
 import {
   padelrocks,
   matchiScrapers,
-  theParkPadelKonala,
   socialSportsClub,
   varisto,
   billebeino,
 } from './matchi/matchi';
+import { padelhouse } from './cintoia/cintoia';
 
 type Scraper = (
   date: Date
@@ -39,13 +38,15 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   },
   { name: 'esport-1', scraper: esport1TennisInside },
   { name: 'esport-2', scraper: esport2TennisInside },
-  { name: 'smash-center-helsinki', scraper: smashCenterHelsinki },
-  { name: 'smash-center-olari', scraper: smashCenterOlari },
+  // requires scraping new system
+  // { name: 'smash-center-helsinki', scraper: smashCenterHelsinki },
+  // { name: 'smash-center-olari', scraper: smashCenterOlari },
   // { name: 'laajasalon-tenniskeskus', scraper: laajasalonTenniskeskus },
   { name: 'padelhouse', scraper: padelhouse },
-  { name: 'padelhouse-uusi', scraper: padelhouseUusi },
-  { name: 'arena-center-padel-myllypuro', scraper: arenaCenterMyllypuro },
-  { name: 'smash-center-padel-myllypuro', scraper: smashCenterPadel },
+  // requires scraping new system
+  // { name: 'arena-center-padel-myllypuro', scraper: arenaCenterMyllypuro },
+  // requires scraping new system
+  // { name: 'smash-center-padel-myllypuro', scraper: smashCenterPadel },
   //{ name: 'hiekkabeach', scraper: hiekkabeach },
   { name: 'padelrocks', scraper: padelrocks },
   { name: 'playtomic', scraper: playtomic },
@@ -58,13 +59,11 @@ export {
   hiekkabeach,
   padelrocks,
   padelhouse,
-  padelhouseUusi,
   playtomic,
   arenaCenterMyllypuro,
   smashCenterPadel,
   esport1TennisInside,
   esport2TennisInside,
-  theParkPadelKonala,
   socialSportsClub,
   varisto,
   billebeino,

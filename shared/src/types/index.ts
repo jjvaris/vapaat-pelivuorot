@@ -18,7 +18,6 @@ export type HallId =
   | 'smash-center-olari'
   | 'laajasalon-tenniskeskus'
   | 'padelhouse'
-  | 'padelhouse-uusi'
   | 'billebeino-padel-train-factory'
   | 'hiekkabeach'
   | 'padelrocks'
@@ -73,6 +72,7 @@ export type AvailableHour = {
 };
 
 export type Hour = {
+  // 08:00
   hour: string;
   thirtyMinutes: boolean;
   courtType: CourtType;

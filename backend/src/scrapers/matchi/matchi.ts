@@ -98,16 +98,6 @@ export function padelrocks(date: Date) {
   );
 }
 
-export function theParkPadelKonala(date: Date) {
-  return matchi(
-    getUrl(date, '2062'),
-    'the-park-padel-konala',
-    date,
-    () => 'INSIDE',
-    'https://www.matchi.se/facilities/THEPARKKONALA'
-  );
-}
-
 export function socialSportsClub(date: Date) {
   return matchi(
     getUrl(date, '1953'),
@@ -142,7 +132,6 @@ export function billebeino(date: Date) {
 
 export const matchiScrapers = [
   { name: 'padelrocks', scraper: padelrocks },
-  { name: 'the-park-padel-konala', scraper: theParkPadelKonala },
   { name: 'social-sports-club', scraper: socialSportsClub },
   { name: 'varisto', scraper: varisto },
   { name: 'billebeino', scraper: billebeino },
