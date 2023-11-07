@@ -53,13 +53,14 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
-  {
-    id: 'smash-center-helsinki',
-    name: 'Smash Center Helsinki, Myllypuro',
-    link: 'https://smashcenter.slsystems.fi/booking/booking-calendar',
-    coordinates: [1, 2],
-    types: ['TENNIS', 'PADEL'],
-  },
+  // new system
+  // {
+  //   id: 'smash-center-helsinki',
+  //   name: 'Smash Center Helsinki, Myllypuro',
+  //   link: 'https://smashcenter.slsystems.fi/booking/booking-calendar',
+  //   coordinates: [1, 2],
+  //   types: ['TENNIS', 'PADEL'],
+  // },
   {
     id: 'smash-center-olari',
     name: 'Smash Center Olari',
@@ -113,13 +114,6 @@ export const halls: Hall[] = [
     id: 'padelrocks',
     name: 'Padel Rocks',
     link: 'https://www.matchi.se/facilities/padelrocks?lang=fi',
-    coordinates: [1, 2],
-    types: ['PADEL'],
-  },
-  {
-    id: 'the-park-padel-konala',
-    name: 'The Park Padel Konala',
-    link: 'https://www.matchi.se/facilities/THEPARKKONALA',
     coordinates: [1, 2],
     types: ['PADEL'],
   },
@@ -222,13 +216,14 @@ export const halls: Hall[] = [
     coordinates: [60.0, 24.0],
     types: ['TENNIS'],
   },
-  {
-    id: 'arena-center-padel-myllypuro',
-    name: 'Arena Center Padel, Myllypuro',
-    link: 'https://smashcenter.slsystems.fi/booking/booking-calendar?BookingCalForm%5Bp_laji%5D=10&BookingCalForm%5Bp_pvm%5D=2022-01-16&BookingCalForm%5Bp_pvm_interval%5D=&BookingCalForm%5Bp_calmode%5D=2&BookingCalForm%5Bp_pvm_custom%5D=Sunnuntai+16.01.2022',
-    coordinates: [60.0, 24.0],
-    types: ['PADEL'],
-  },
+  // new system
+  // {
+  //   id: 'arena-center-padel-myllypuro',
+  //   name: 'Arena Center Padel, Myllypuro',
+  //   link: 'https://smashcenter.slsystems.fi/booking/booking-calendar?BookingCalForm%5Bp_laji%5D=10&BookingCalForm%5Bp_pvm%5D=2022-01-16&BookingCalForm%5Bp_pvm_interval%5D=&BookingCalForm%5Bp_calmode%5D=2&BookingCalForm%5Bp_pvm_custom%5D=Sunnuntai+16.01.2022',
+  //   coordinates: [60.0, 24.0],
+  //   types: ['PADEL'],
+  // },
   {
     id: 'hiekkaharjuntenniskeskus',
     name: 'Hiekkaharjun Tenniskeskus',
