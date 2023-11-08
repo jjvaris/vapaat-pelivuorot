@@ -1,7 +1,6 @@
 import state from './state';
 import { format, addDays, parseISO } from 'date-fns';
 import scrapers, {
-  talitaivallahti,
   socialSportsClub,
   playtomic,
   padelrocks,
@@ -13,7 +12,13 @@ import scrapers, {
   billebeino,
 } from './scrapers';
 import { AvailableHourUpdate } from 'shared';
-import { padelhouse } from './scrapers/cintoia/cintoia';
+import {
+  mandalum,
+  meilahti,
+  padelhouse,
+  talinTenniskeskus,
+  tapiolanTennispuisto,
+} from './scrapers/cintoia/cintoia';
 
 const random = (max: number, min = 0) =>
   Math.floor(Math.random() * (max - min) + min);
@@ -72,7 +77,6 @@ export function scrapeAll() {
     addDays(new Date(), i)
   );
   daysToScrape.forEach(scrapeAllByDate);
-  scrapeByDate(new Date(), 'talitaivallahti', talitaivallahti);
 }
 
 function scrapeAllByDate(date: Date) {

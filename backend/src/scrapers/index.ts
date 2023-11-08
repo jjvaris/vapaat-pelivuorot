@@ -1,7 +1,5 @@
-import meilahti from './meilahti';
 import { targaTennisInside, targaPadelInside } from './targa';
 import { talitaivallahti } from './talitaivallahti';
-import { mandalumTennisInside } from './mandalum';
 import { tapiolanTennispuistoInside } from './tapiolanTennispuisto';
 import { helsinginMailapelikeskusTennisInside } from './helsinginMailapelikeskus';
 import { esport1TennisInside, esport2TennisInside } from './esportTapiola';
@@ -20,7 +18,13 @@ import {
   varisto,
   billebeino,
 } from './matchi/matchi';
-import { padelhouse } from './cintoia/cintoia';
+import {
+  mandalum,
+  meilahti,
+  padelhouse,
+  talinTenniskeskus,
+  tapiolanTennispuisto,
+} from './cintoia/cintoia';
 
 type Scraper = (
   date: Date
@@ -30,8 +34,9 @@ const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'meilahti', scraper: meilahti },
   { name: 'targa', scraper: targaTennisInside },
   { name: 'targa-padel', scraper: targaPadelInside },
-  { name: 'mandalum-center', scraper: mandalumTennisInside },
-  { name: 'tapiolan-tennispuisto', scraper: tapiolanTennispuistoInside },
+  { name: 'mandalum-center', scraper: mandalum },
+  { name: 'tapiolan-tennispuisto', scraper: tapiolanTennispuisto },
+  { name: 'talinTenniskeskus', scraper: talinTenniskeskus },
   {
     name: 'helsingin-mailapelikeskus',
     scraper: helsinginMailapelikeskusTennisInside,
@@ -54,7 +59,6 @@ const scrapers: { name: string; scraper: Scraper }[] = [
 ];
 
 export {
-  talitaivallahti,
   targaPadelInside,
   hiekkabeach,
   padelrocks,

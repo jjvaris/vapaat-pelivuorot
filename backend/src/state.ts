@@ -27,14 +27,14 @@ export const halls: Hall[] = [
   {
     id: 'tapiolan-tennispuisto',
     name: 'Tapiolan Tennispuisto',
-    link: 'https://playtomic.io/tapiolan-tennispuisto/2038ebe9-7062-453f-8e3d-f1c179890ce7',
+    link: 'https://tennispuisto.cintoia.com/',
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
   {
     id: 'mandalum-center',
     name: 'Mandalum Center',
-    link: 'https://play.fi/mandatumcenter/booking/booking-calendar',
+    link: 'https://mandatumcenter.cintoia.com/',
     coordinates: [1, 2],
     types: ['TENNIS'],
   },

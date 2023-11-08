@@ -216,7 +216,7 @@ function HallCard({
 }
 
 function AvailableHours({ hall, isOpen }: { hall: Hall; isOpen: boolean }) {
-  if (['meilahti', 'mandalum-center'].includes(hall.id)) {
+  if (['smash-center-olari'].includes(hall.id)) {
     return (
       <div className="text-pink-500 text-sm font-light">
         Tarkasta vapaat vuorot omasta järjestelmästä
