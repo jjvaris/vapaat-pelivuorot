@@ -1,4 +1,3 @@
-import { targaTennisInside, targaPadelInside } from './targa';
 import { talitaivallahti } from './talitaivallahti';
 import { tapiolanTennispuistoInside } from './tapiolanTennispuisto';
 import { helsinginMailapelikeskusTennisInside } from './helsinginMailapelikeskus';
@@ -24,6 +23,7 @@ import {
   padelhouse,
   talinTenniskeskus,
   tapiolanTennispuisto,
+  targa,
 } from './cintoia/cintoia';
 
 type Scraper = (
@@ -32,8 +32,7 @@ type Scraper = (
 
 const scrapers: { name: string; scraper: Scraper }[] = [
   { name: 'meilahti', scraper: meilahti },
-  { name: 'targa', scraper: targaTennisInside },
-  { name: 'targa-padel', scraper: targaPadelInside },
+  { name: 'targa', scraper: targa },
   { name: 'mandalum-center', scraper: mandalum },
   { name: 'tapiolan-tennispuisto', scraper: tapiolanTennispuisto },
   { name: 'talinTenniskeskus', scraper: talinTenniskeskus },
@@ -59,7 +58,6 @@ const scrapers: { name: string; scraper: Scraper }[] = [
 ];
 
 export {
-  targaPadelInside,
   hiekkabeach,
   padelrocks,
   padelhouse,

@@ -16,14 +16,13 @@ export const halls: Hall[] = [
     coordinates: [1, 2],
     types: ['TENNIS'],
   },
-  // New system: https://targaarena.cintoia.com/
-  // {
-  //   id: 'targa',
-  //   name: 'Targa Arena',
-  //   link: 'https://play.fi/targaarena/booking/booking-calendar',
-  //   coordinates: [1, 2],
-  //   types: ['TENNIS', 'PADEL'],
-  // },
+  {
+    id: 'targa',
+    name: 'Targa Arena',
+    link: 'https://targaarena.cintoia.com/',
+    coordinates: [1, 2],
+    types: ['TENNIS', 'PADEL'],
+  },
   {
     id: 'tapiolan-tennispuisto',
     name: 'Tapiolan Tennispuisto',
@@ -92,6 +91,13 @@ export const halls: Hall[] = [
   {
     id: 'padelhouse',
     name: 'Padel House',
+    link: 'https://padelhouse.cintoia.com/',
+    coordinates: [1, 2],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padelhouse-uusi',
+    name: 'Padel House (uusi puoli)',
     link: 'https://padelhouse.cintoia.com/',
     coordinates: [1, 2],
     types: ['PADEL'],
@@ -192,6 +198,13 @@ export const halls: Hall[] = [
     id: 'padel-club-finland,-porttipuisto',
     name: 'Padel Club Finland - Porttipuisto Vantaa',
     link: 'https://playtomic.io/',
+    coordinates: [60.278843, 25.085704],
+    types: ['PADEL'],
+  },
+  {
+    id: 'padel-club-viikinranta',
+    name: 'Padel Viikinranta',
+    link: 'https://playtomic.io/padel-viikinranta/627280b1-76cd-40bb-acb6-6185db2e8fb3',
     coordinates: [60.278843, 25.085704],
     types: ['PADEL'],
   },

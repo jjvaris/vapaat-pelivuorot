@@ -18,6 +18,7 @@ import {
   padelhouse,
   talinTenniskeskus,
   tapiolanTennispuisto,
+  targa,
 } from './scrapers/cintoia/cintoia';
 
 const random = (max: number, min = 0) =>

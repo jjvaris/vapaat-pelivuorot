@@ -87,7 +87,7 @@ export async function cintoia(
   return hours;
 }
 
-export async function padelhouse(date: Date): Promise<AvailableHourUpdate> {
+export async function padelhouse(date: Date): Promise<AvailableHourUpdate[]> {
   const courtToCourtType: Record<string, CourtType> = {
     UK28: 'OUTSIDE',
     UK29: 'OUTSIDE',
@@ -103,14 +103,51 @@ export async function padelhouse(date: Date): Promise<AvailableHourUpdate> {
     ['Padel'],
     (court) => courtToCourtType[court] ?? 'INSIDE'
   );
-  return {
-    day: format(date, 'yyyy-MM-dd'),
-    hallId: 'padelhouse',
-    hours,
-    type: 'PADEL',
-    id: 'padelhouse',
-    link: 'https://padelhouse.cintoia.com/',
-  };
+  const hoursInNewSite = hours.filter((hour) =>
+    ['K19', 'K20', 'K21', 'K22', 'K23', 'K24', 'K25', 'K26', 'K27'].includes(
+      hour.court
+    )
+  );
+  const hoursInOldSite = hours.filter((hour) =>
+    [
+      'K1',
+      'K2',
+      'K3',
+      'K4',
+      'K5',
+      'K6',
+      'K7',
+      'K8',
+      'K9',
+      'K10',
+      'K11',
+      'K12',
+      'K13',
+      'K14',
+      'K15',
+      'K16',
+      'K17',
+      'K18',
+    ].includes(hour.court)
+  );
+  return [
+    {
+      day: format(date, 'yyyy-MM-dd'),
+      hallId: 'padelhouse',
+      hours: hoursInOldSite,
+      type: 'PADEL',
+      id: 'padelhouse',
+      link: 'https://padelhouse.cintoia.com/',
+    },
+    {
+      day: format(date, 'yyyy-MM-dd'),
+      hallId: 'padelhouse-uusi',
+      hours: hoursInNewSite,
+      type: 'PADEL',
+      id: 'padelhouse-uusi',
+      link: 'https://padelhouse.cintoia.com/',
+    },
+  ];
 }
 
 export async function tapiolanTennispuisto(
@@ -199,6 +236,41 @@ export async function talinTenniskeskus(
       type: 'TENNIS',
       id: 'taivallahti',
       link: 'https://talitaivallahti.feel.cintoia.com/',
+    },
+  ];
+}
+
+export async function targa(date: Date): Promise<AvailableHourUpdate[]> {
+  const hours = await cintoia(
+    date,
+    'kauniaistenurheilupuisto-9WQB1q2Z',
+    ['Tennis', 'Padel'],
+    (court) => 'INSIDE'
+  );
+  const tennisHours = hours.filter(
+    (hour) => hour.court.startsWith('T') && !hour.court.includes('Targa')
+  );
+  const padelHours = hours.filter(
+    (hour) => hour.court.startsWith('P') && !hour.court.includes('tykki')
+  );
+
+  console.log(hours);
+  return [
+    {
+      day: format(date, 'yyyy-MM-dd'),
+      hallId: 'targa',
+      hours: tennisHours,
+      type: 'TENNIS',
+      id: 'targa',
+      link: 'https://targaarena.cintoia.com/',
+    },
+    {
+      day: format(date, 'yyyy-MM-dd'),
+      hallId: 'targa',
+      hours: padelHours,
+      type: 'PADEL',
+      id: 'targa',
+      link: 'https://targaarena.cintoia.com/',
     },
   ];
 }
