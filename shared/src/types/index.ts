@@ -28,7 +28,6 @@ export type HallId =
   | 'padel-club-finland---kilo-espoo'
   | 'padel-club-finland-masala'
   | 'padel-club-viikinranta'
-  | 'arena-center-kaarela'
   | 'padel-vantaa'
   | 'padelsuperpark'
   | 'padel-club-finland,-tammisto'

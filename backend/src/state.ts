@@ -167,13 +167,6 @@ export const halls: Hall[] = [
     types: ['PADEL'],
   },
   {
-    id: 'arena-center-kaarela',
-    name: 'Arena Center Kaarela',
-    link: 'https://playtomic.io/',
-    coordinates: [60.23773592, 24.90034999],
-    types: ['PADEL'],
-  },
-  {
     id: 'padel-vantaa',
     name: 'Open Padel Kaivoksela',
     link: 'https://playtomic.io/',

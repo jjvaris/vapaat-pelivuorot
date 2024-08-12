@@ -254,7 +254,6 @@ export async function targa(date: Date): Promise<AvailableHourUpdate[]> {
     (hour) => hour.court.startsWith('P') && !hour.court.includes('tykki')
   );
 
-  console.log(hours);
   return [
     {
       day: format(date, 'yyyy-MM-dd'),
