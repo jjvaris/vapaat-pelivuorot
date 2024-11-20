@@ -32,7 +32,7 @@ export const halls: Hall[] = [
   },
   {
     id: 'mandalum-center',
-    name: 'Mandalum Center',
+    name: 'Mandatum Center',
     link: 'https://mandatumcenter.cintoia.com/',
     coordinates: [1, 2],
     types: ['TENNIS'],
